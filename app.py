@@ -12,6 +12,8 @@ import cloudinary.uploader
 from PIL import Image
 import glob
 import cv2
+import random
+import string
 
 make_course = ""
 
@@ -79,8 +81,8 @@ def upload():
         img = Image.open(name[0])
         img_resize = img.resize((400, 400))
         img_resize.save(os.path.join(download_file_path,"resize_image.png"))
-        l = save_filename.split('.')
-        s = l[0]
+        split_filename = save_filename.split('.')
+        send_filename = split_filename[0]
 
         filename = f"{download_file_path}/resize_image.png"
 
@@ -102,11 +104,13 @@ def upload():
             create = ConnectImage(8, 400, cul, "fullscale_images")
             create.connect_image()
 
+        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
+        randstr = ''.join(randlst)
 
-        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image.png", public_id=f"download_images/{s}")
+        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image.png", public_id=f"download_images/{send_filename}{randstr}")
 
 
-        return {"image":f"https://res.cloudinary.com/shoimages/download_images/{s}.png"}
+        return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
 
 
 @app.route("/make",methods=["GET", "POST"])
