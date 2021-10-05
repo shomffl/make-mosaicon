@@ -118,7 +118,7 @@ def make_files():
     if fullscale_exist == False:
         os.mkdir(f"{base_url}/fullscale_images/")
         os.mkdir(f"{base_url}/fullscale_images/big_material_files")
-        os.mkdir(f"{base_url}/fullscale_images/smallg_material_files")
+        os.mkdir(f"{base_url}/fullscale_images/small_material_files")
         os.mkdir(f"{base_url}/fullscale_images/download_material_files")
 
     if split_exist == False:
