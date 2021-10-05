@@ -8,12 +8,11 @@ import axios from "axios";
 export const Home = () => {
   const buttonStyle = {
     color: "white",
-    fontSize: "20px",
+    fontSize: "1.5vw",
     fontWeight: "bold",
     borderRadius: "30px",
-    height: "48px",
-    width: "160px",
-    radius: "30px",
+    height: "4vw",
+    width: "13vw",
   };
 
   useEffect(() => {
@@ -43,11 +42,13 @@ export const Home = () => {
       <Background>
         <Title>
           <SlideInRight>MAKE</SlideInRight>
+
           <SlideInLeft>
             <span style={{ color: "#35007d" }}>MOSA</span>
             <span style={{ color: "#5300c4" }}>IC</span>
             <span style={{ color: "#8600ac" }}>ON</span>
           </SlideInLeft>
+
           <Div>
             <StyledButton1 style={buttonStyle} onClick={onClickSubmitArea}>
               SIMPLE
@@ -75,7 +76,6 @@ const Background = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   box-sizing: border-box;
   border: solid 10px;
   border-color: #505867;
@@ -87,13 +87,14 @@ const Title = styled.h1`
   display: flex;
   flex-direction: column;
   position: relative;
-  top: -70px;
+  bottom: 7vw;
 `;
 
 const Div = styled.div`
   display: flex;
   justify-content: center;
-  gap: 0 70px;
+  align-items: center;
+  gap: 0 5vw;
   position: absolute;
   bottom: -45%;
   left: 20%;
@@ -154,18 +155,18 @@ const StyledButton2 = styled(Button)`
 
 const SlideInRight = styled.span`
   animation: ${slideInRight} 1.25s cubic-bezier(0.25, 1, 0.75, 1.5) 1 forwards;
-  font-size: 60px;
+  font-size: 5vw;
   font-weight: 700;
-  letter-spacing: 10px;
+  letter-spacing: 1vw;
   padding: 0px;
   margin-bottom: -20px;
 `;
 
 const SlideInLeft = styled.div`
   animation: ${slideInLeft} 1.25s cubic-bezier(0.25, 1, 0.75, 1.5) 1 forwards;
-  font-size: 100px;
+  font-size: 8vw;
   font-weight: 700;
-  letter-spacing: 10px;
+  letter-spacing: 1vw;
   padding: 0px;
   margin: 0px;
 `;
