@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import backgroundImage from "./background1.png";
 import { Button } from "@material-ui/core";
@@ -15,6 +15,10 @@ export const Home = () => {
     width: "160px",
     radius: "30px",
   };
+
+  useEffect(() => {
+    axios.get("/make");
+  }, []);
 
   const history = useHistory();
 
