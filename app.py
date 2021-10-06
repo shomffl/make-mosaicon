@@ -18,10 +18,12 @@ from dotenv import load_dotenv
 
 load_dotenv(".env")
 
+
+
 cloudinary.config(
-  cloud_name = os.environ.get("CLOUD_NAME"),
-  api_key = os.environ.get("API_KEY"),
-  api_secret = os.environ.get("API_SECRET")
+  cloud_name = "shoimages",
+  api_key = "368926218216362",
+  api_secret = "jiWK8KfY-L-JXEmQ_GmH0Z2y2W0"
 )
 
 make_course = ""
