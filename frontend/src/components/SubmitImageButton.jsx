@@ -47,7 +47,7 @@ export const SubmitImageButton = (props) => {
     <>
       {openCreate ? (
         <div>
-          <Form onSubmit={submitImage} encType="multipart/form-data">
+          <Form onSubmit={submitImage}>
             <label>
               <input
                 style={{ display: "none" }}
