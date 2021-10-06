@@ -14,16 +14,17 @@ import glob
 import cv2
 import random
 import string
-from dotenv import load_dotenv
 
-load_dotenv(".env")
 
+CLOUD_NAME = os.environ["CLOUD_NAME"]
+API_KEY = os.environ["API_KEY"]
+API_SECRET = os.environ["API_SECRET"]
 
 
 cloudinary.config(
-  cloud_name = "shoimages",
-  api_key = "368926218216362",
-  api_secret = "jiWK8KfY-L-JXEmQ_GmH0Z2y2W0"
+  cloud_name = CLOUD_NAME,
+  api_key = API_KEY,
+  api_secret = API_SECRET
 )
 
 make_course = ""
