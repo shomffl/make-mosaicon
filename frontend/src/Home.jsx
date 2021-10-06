@@ -83,7 +83,7 @@ const Background = styled.header`
   padding: 0px;
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;

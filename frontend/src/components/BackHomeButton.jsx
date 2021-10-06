@@ -20,7 +20,7 @@ export const BackHomeButton = () => {
   return (
     <>
       <IconButton onClick={onClickBackHome}>
-        <CustomIcon style={{ fontSize: 60 }} />
+        <CustomIcon style={{ fontSize: "6vw" }} />
       </IconButton>
     </>
   );
@@ -29,8 +29,8 @@ export const BackHomeButton = () => {
 const CustomIcon = styled(HomeIcon)`
   background: linear-gradient(45deg, #ffffff, #accfcc);
   color: black;
-  border-radius: 25px;
-  padding: 5px;
+  border-radius: 2vw;
+  padding: 0.4vw;
   &:hover {
     transform: translateY(-1px);
     background: linear-gradient(45deg, #accfcc, #7f9997);

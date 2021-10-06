@@ -17,15 +17,17 @@ export const ImageDisplay = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <SBackground>
-        <SImage src={image} alt="img-screen" />
+        <Div>
+          <SImage src={image} alt="img-screen" />
 
-        {openCreate ? null : (
-          <>
-            {openDownload ? (
-              <SReactLoading type="spokes" width="350px" color="#5CADB8" />
-            ) : null}
-          </>
-        )}
+          {openCreate ? null : (
+            <>
+              {openDownload ? (
+                <SReactLoading type="spokes" width="35vmax" color="#5CADB8" />
+              ) : null}
+            </>
+          )}
+        </Div>
 
         <SUploadButtonPosition>
           <SubmitImageButton changeImage={changeImage} />
@@ -57,28 +59,32 @@ const SBackground = styled.header`
   border-color: #505867;
   margin: 0px;
   padding: 0px;
+`;
+
+const Div = styled.div`
   position: relative;
+  top: 0.5vw;
 `;
 
 const SImage = styled.img`
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  top: 7%;
+  width: 35vmax;
+  height: 35vmax;
+  position: relative;
+  bottom: 6vw;
 `;
 
 const SReactLoading = styled(ReactLoading)`
   position: absolute;
-  top: 11%;
+  top: -6vw;
 `;
 
 const SUploadButtonPosition = styled.div`
   position: absolute;
-  top: 75%;
+  bottom: 8vw;
 `;
 
 const SHomeButtonPosition = styled.div`
   position: absolute;
-  top: 1.5%;
-  left: 1.5%;
+  top: 1vw;
+  left: 1vw;
 `;
