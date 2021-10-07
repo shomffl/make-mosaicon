@@ -52,6 +52,7 @@ export const SubmitImageButton = (props) => {
               <input
                 style={{ display: "none" }}
                 type="file"
+                name="file"
                 accept="image/*"
               />
               <SStyledButton style={ButtonStyle} component="span">
@@ -61,11 +62,10 @@ export const SubmitImageButton = (props) => {
 
             <label>
               <SCustomIconButton style={ButtonStyle} type="submit">
-              <span>upload</span>
-              <PublishIcon style={{fontSize: "2vw"}}/>
-            </SCustomIconButton>
+                <span>upload</span>
+                <PublishIcon style={{ fontSize: "2vw" }} />
+              </SCustomIconButton>
             </label>
-
           </Form>
         </div>
       ) : (
