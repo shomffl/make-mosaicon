@@ -14,12 +14,11 @@ export const RemaikButton = memo((props) => {
 
   const ButtonStyle = {
     color: "white",
-    fontSize: "20px",
+    fontSize: "2vw",
     fontWeight: "bold",
     borderRadius: "30px",
-    width: "120px",
-    height: "48px",
-    radius: "30px",
+    height: "4vw",
+    width: "12vw",
   };
 
   const onClickRemake = () => {
