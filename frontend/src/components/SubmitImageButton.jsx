@@ -112,7 +112,7 @@ const SStyledButton = styled(Button)`
   }
 `;
 
-const SCustomIconButton = styled(Button)`
+const SCustomIconButton = styled(IconButton)`
   background: linear-gradient(45deg, #66b8cc, #65a7cc);
   &:hover {
     transform: translateY(-0.1rem);
