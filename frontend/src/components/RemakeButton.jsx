@@ -18,7 +18,7 @@ export const RemaikButton = memo((props) => {
     fontWeight: "bold",
     borderRadius: "30px",
     height: "4vw",
-    width: "12vw",
+    width: "13vw",
   };
 
   const onClickRemake = () => {
