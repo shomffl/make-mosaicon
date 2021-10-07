@@ -39,7 +39,7 @@ export const SubmitImageButton = (props) => {
           setOpenDownload(!openDownload);
         })
         .catch((error) => {
-          console.log(error);
+          alert("エラーが出ました")
         });
     };
     Upload();
