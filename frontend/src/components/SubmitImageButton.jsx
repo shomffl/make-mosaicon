@@ -14,15 +14,14 @@ export const SubmitImageButton = (props) => {
   const { openDownload, setOpenDownload } = useContext(OpenDownloadContext);
   const [imageUrl, setImageUrl] = useState("");
 
-   const ButtonStyle = {
-     color: "white",
-     fontSize: "2vw",
-     fontWeight: "bold",
-     borderRadius: "30px",
-     height: "4vw",
-     width: "12vw",
-   };
-
+  const ButtonStyle = {
+    color: "white",
+    fontSize: "2vw",
+    fontWeight: "bold",
+    borderRadius: "30px",
+    height: "4vw",
+    width: "12vw",
+  };
 
   const submitImage = (e) => {
     setOpenCreate(!openCreate);
@@ -38,6 +37,9 @@ export const SubmitImageButton = (props) => {
           changeImage(`${result.data.image}`);
           setImageUrl(result.data.image);
           setOpenDownload(!openDownload);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     };
     Upload();
@@ -92,11 +94,10 @@ const Form = styled.form`
 const Div = styled.div`
   display: flex;
   justify-content: center;
-    align-items: center;
+  align-items: center;
 
   gap: 0 4vw;
 `;
-
 
 const SStyledButton = styled(Button)`
   background: linear-gradient(45deg, #66b8cc, #65a7cc);
