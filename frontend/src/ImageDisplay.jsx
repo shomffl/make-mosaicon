@@ -27,11 +27,11 @@ export const ImageDisplay = () => {
               ) : null}
             </>
           )}
+          <SUploadButtonPosition>
+            <SubmitImageButton changeImage={changeImage} />
+          </SUploadButtonPosition>
         </Div>
 
-        <SUploadButtonPosition>
-          <SubmitImageButton changeImage={changeImage} />
-        </SUploadButtonPosition>
         <SHomeButtonPosition>
           <BackHomeButton />
         </SHomeButtonPosition>
@@ -64,6 +64,9 @@ const SBackground = styled.header`
 const Div = styled.div`
   position: relative;
   top: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const SImage = styled.img`
@@ -80,7 +83,7 @@ const SReactLoading = styled(ReactLoading)`
 
 const SUploadButtonPosition = styled.div`
   position: absolute;
-  bottom: 8vw;
+  top: 31vmax;
 `;
 
 const SHomeButtonPosition = styled.div`

@@ -14,15 +14,15 @@ export const SubmitImageButton = (props) => {
   const { openDownload, setOpenDownload } = useContext(OpenDownloadContext);
   const [imageUrl, setImageUrl] = useState("");
 
-  const ButtonStyle = {
-    color: "white",
-    fontSize: "20px",
-    fontWeight: "bold",
-    borderRadius: "30px",
-    width: "120px",
-    height: "48px",
-    radius: "30px",
-  };
+   const ButtonStyle = {
+     color: "white",
+     fontSize: "2vw",
+     fontWeight: "bold",
+     borderRadius: "30px",
+     height: "4vw",
+     width: "12vw",
+   };
+
 
   const submitImage = (e) => {
     setOpenCreate(!openCreate);
@@ -52,17 +52,20 @@ export const SubmitImageButton = (props) => {
               <input
                 style={{ display: "none" }}
                 type="file"
-                name="file"
                 accept="image/*"
               />
               <SStyledButton style={ButtonStyle} component="span">
-                SELECT
+                <span>SELECT</span>
               </SStyledButton>
             </label>
-            <SCustomIconButton style={ButtonStyle} type="submit">
+
+            <label>
+              <SCustomIconButton style={ButtonStyle} type="submit">
               <span>upload</span>
-              <PublishIcon />
+              <PublishIcon style={{fontSize: "2vw"}}/>
             </SCustomIconButton>
+            </label>
+
           </Form>
         </div>
       ) : (
@@ -82,13 +85,16 @@ export const SubmitImageButton = (props) => {
 const Form = styled.form`
   display: flex;
   justify-content: center;
-  gap: 0 40px;
+  align-items: center;
+  gap: 0 4vw;
 `;
 
 const Div = styled.div`
   display: flex;
   justify-content: center;
-  gap: 0 40px;
+    align-items: center;
+
+  gap: 0 4vw;
 `;
 
 
@@ -106,7 +112,7 @@ const SStyledButton = styled(Button)`
   }
 `;
 
-const SCustomIconButton = styled(IconButton)`
+const SCustomIconButton = styled(Button)`
   background: linear-gradient(45deg, #66b8cc, #65a7cc);
   &:hover {
     transform: translateY(-0.1rem);
