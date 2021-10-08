@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { RemaikButton } from "./RemakeButton";
 import { OpenCreateContext } from "../providers/OpenCreateProvider";
@@ -23,6 +23,10 @@ export const SubmitImageButton = (props) => {
     width: "12vw",
   };
 
+  useEffect(() => {
+    axios.get("/remake");
+  }, []);
+
   const submitImage = (e) => {
     setOpenCreate(!openCreate);
 
@@ -39,7 +43,6 @@ export const SubmitImageButton = (props) => {
           setOpenDownload(!openDownload);
         })
         .catch((error) => {
-          setOpenCreate(!openCreate);
           alert(
             "エラーが出ました！ リロードした後に画像を再送信してください。"
           );
