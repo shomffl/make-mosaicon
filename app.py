@@ -93,7 +93,7 @@ def upload():
         filename = f"{download_file_path}/resize_image.png"
 
         if make_course == True:
-            split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
+            split_image = SplitOriginal(10, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("simple_images/small_material_files")
@@ -107,7 +107,7 @@ def upload():
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("fullscale_images/small_material_files")
             cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
-            create = ConnectImage(8, 400, cul, "fullscale_images")
+            create = ConnectImage(10, 400, cul, "fullscale_images")
             create.connect_image()
 
         randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
