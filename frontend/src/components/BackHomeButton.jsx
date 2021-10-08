@@ -12,7 +12,7 @@ export const BackHomeButton = () => {
 
   const history = useHistory();
   const onClickBackHome = () => {
-    history.push("/");
+    history.push("/home");
     setOpenDownload(true);
     setOpenCreate(true);
   };

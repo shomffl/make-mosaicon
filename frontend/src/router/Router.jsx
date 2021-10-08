@@ -1,15 +1,19 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Home } from "../Home";
 import React from "react";
 import { SubmitMaterialButton } from "../components/SubmitMaterialButton";
-import { ImageDisplay } from "../ImageDisplay";
+import { ImageDisplay } from "../components/ImageDisplay";
+import { HomeDisplay } from "../components/HomeDisplay";
+import { ExplanationDisplay } from "../components/ExplanationDisplay";
 
 export const Router = () => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <ExplanationDisplay />
+        </Route>
+        <Route exact path="/home">
+          <HomeDisplay />
         </Route>
         <Route path="/fullscale">
           <SubmitMaterialButton />
