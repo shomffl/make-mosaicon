@@ -51,11 +51,12 @@ class CompareColors():
 #画像を結合する
 class ConnectImage():
 
-    def __init__(self, size, length, min_numbers, course_name):
+    def __init__(self, size, length, min_numbers, course_name, save_name):
         self.size = size
         self.length = length
         self.min_numbers = min_numbers
         self.course_name = course_name
+        self.save_name = save_name
 
     def connect_image(self):
         side = self.length
@@ -74,4 +75,4 @@ class ConnectImage():
         cul = cv2.vconcat([cv2.hconcat(i) for i in big_img])
 
 
-        cv2.imwrite(f"{BASE_URL}/download_images/mosaic_image.png", cul)
+        cv2.imwrite(f"{BASE_URL}/download_images/{self.save_name}.png", cul)

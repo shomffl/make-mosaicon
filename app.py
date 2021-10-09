@@ -92,6 +92,9 @@ def upload():
 
         filename = f"{download_file_path}/resize_image.png"
 
+        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
+        randstr = ''.join(randlst)
+
         if make_course == True:
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
@@ -107,13 +110,12 @@ def upload():
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("fullscale_images/small_material_files")
             cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
-            create = ConnectImage(8, 400, cul, "fullscale_images")
+            create = ConnectImage(8, 400, cul, "fullscale_images", f"mosaic_image{randstr}.png")
             create.connect_image()
 
-        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
-        randstr = ''.join(randlst)
 
-        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image.png", public_id=f"download_images/{send_filename}{randstr}")
+
+        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
 
 
         return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
