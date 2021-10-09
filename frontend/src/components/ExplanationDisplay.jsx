@@ -29,10 +29,32 @@ export const ExplanationDisplay = () => {
           <span style={{ color: "#8600ac" }}>ON</span>
           <span>」へ!!</span>
         </Title>
+        <TextPosition>
+          <ExplainApp1>
+            <span>▽&ensp;</span>
+            <span style={{ color: "#E64552" }}>MAKE&ensp;</span>
+            <span style={{ color: "#35007d" }}>MOSA</span>
+            <span style={{ color: "#5300c4" }}>IC</span>
+            <span style={{ color: "#8600ac" }}>ON</span>
+            <span>とは？</span>
+          </ExplainApp1>
+          <ExplainApp2>
+            <span>→ モザイクアートを作成するアプリです。</span>
+          </ExplainApp2>
 
-        {/* <SCustomButton style={ButtonStyle} onClick={onClickHome}>
+          <ExplainMosaicArt1>
+            <span>▽ モザイクアートとは?</span>
+          </ExplainMosaicArt1>
+
+          <ExplainMosaicArt2>
+            <span>
+              → 小さな画像を大量に使って1枚の写真を作り上げるアートです。
+            </span>
+          </ExplainMosaicArt2>
+        </TextPosition>
+        <SCustomButton style={ButtonStyle} onClick={onClickHome}>
           <span>START ⇒</span>
-        </SCustomButton> */}
+        </SCustomButton>
       </Background>
     </>
   );
@@ -47,24 +69,51 @@ const Background = styled.header`
     url(${backgroundImage});
   background-size: cover;
   min-height: 100vh;
-
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   border: solid 10px;
   border-color: #505867;
-  margin: 0px;
-  padding: 0px;
 `;
 
 const Title = styled.div`
-  display: flex;
-  position: absolute;
-  top: 5vmax;
+  position: relative;
+  bottom: 8vmax;
   font-size: 4.5vw;
   font-weight: bold;
-  letter-spacing: 0.2vw;
+  letter-spacing: 0.2vmax;
+`;
+
+const TextPosition = styled.div`
+  position: relative;
+  bottom: 7vw;
+`;
+
+const ExplainApp1 = styled.div`
+  font-size: 3vmax;
+  font-weight: bold;
+  letter-spacing: 0.2vmax;
+`;
+
+const ExplainApp2 = styled.div`
+  font-size: 2.5vmax;
+  font-weight: bold;
+  letter-spacing: 0.2vmax;
+  padding: 0 0 1vmax;
+`;
+
+const ExplainMosaicArt1 = styled.div`
+  font-size: 3vmax;
+  font-weight: bold;
+  letter-spacing: 0.2vmax;
+`;
+
+const ExplainMosaicArt2 = styled.div`
+  font-size: 2.5vmax;
+  font-weight: bold;
+  letter-spacing: 0.2vmax;
 `;
 
 const circleanime = keyframes`
@@ -79,8 +128,8 @@ const circleanime = keyframes`
 
 const SCustomButton = styled(Button)`
   background: linear-gradient(45deg, #ff9ae3, #ff5f82);
-  position: absolute;
-  top: 20vw;
+  position: relative;
+  top: 5vmax;
 
   &:hover {
     transform: translateY(-0.1rem);
