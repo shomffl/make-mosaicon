@@ -78,7 +78,30 @@ const Background = styled.header`
   border-color: #505867;
 `;
 
+const slideInLeft = keyframes`
+  0% {
+    transform: translateX(-180px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+  }
+  40%,100% {
+    opacity: 1;
+  }
+`;
+
+const fadeIn = keyframes` {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}`;
+
 const Title = styled.div`
+  animation: ${slideInLeft} 1.25s cubic-bezier(0.25, 1, 0.75, 1.5) 1 forwards;
   position: relative;
   bottom: 8vmax;
   font-size: 4.5vw;
@@ -87,6 +110,7 @@ const Title = styled.div`
 `;
 
 const TextPosition = styled.div`
+  animation: ${fadeIn} 4s 1 forwards;
   position: relative;
   bottom: 7vw;
 `;
