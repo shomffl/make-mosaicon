@@ -4,7 +4,6 @@ import ReplayIcon from "@material-ui/icons/Replay";
 import { IconButton } from "@material-ui/core";
 import { OpenCreateContext } from "../providers/OpenCreateProvider";
 import styled from "styled-components";
-import axios from "axios";
 import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
 
 export const RemaikButton = memo((props) => {
@@ -22,10 +21,6 @@ export const RemaikButton = memo((props) => {
   };
 
   const onClickRemake = () => {
-    // const Clear = () => {
-    //   axios.post("/remake");
-    // };
-    // Clear();
     changeImage(logo);
     setOpenCreate(!openCreate);
     setOpenDownload(!openDownload);
