@@ -15,7 +15,6 @@ import cv2
 import random
 import string
 
-
 CLOUD_NAME = os.environ["CLOUD_NAME"]
 API_KEY = os.environ["API_KEY"]
 API_SECRET = os.environ["API_SECRET"]
@@ -101,7 +100,7 @@ def upload():
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("simple_images/small_material_files")
             cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
-            create = ConnectImage(8, 400, cul,"simple_images")
+            create = ConnectImage(8, 400, cul,"simple_images", f"mosaic_image{randstr}.png")
             create.connect_image()
 
         elif make_course == False:

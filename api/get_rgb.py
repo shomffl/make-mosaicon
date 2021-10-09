@@ -75,4 +75,4 @@ class ConnectImage():
         cul = cv2.vconcat([cv2.hconcat(i) for i in big_img])
 
 
-        cv2.imwrite(f"{BASE_URL}/download_images/{self.save_name}.png", cul)
+        cv2.imwrite(f"{BASE_URL}/download_images/{self.save_name}", cul)
