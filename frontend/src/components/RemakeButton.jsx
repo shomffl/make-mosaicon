@@ -22,10 +22,10 @@ export const RemaikButton = memo((props) => {
   };
 
   const onClickRemake = () => {
-    const Clear = () => {
-      axios.post("/remake");
-    };
-    Clear();
+    // const Clear = () => {
+    //   axios.post("/remake");
+    // };
+    // Clear();
     changeImage(logo);
     setOpenCreate(!openCreate);
     setOpenDownload(!openDownload);
