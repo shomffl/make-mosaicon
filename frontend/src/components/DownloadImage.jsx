@@ -24,7 +24,7 @@ export const DownloadImage = memo((props) => {
       <div>
         <SCustomIconButton style={ButtonStyle} onClick={onClickDownload}>
           <span>download</span>
-          <GetAppIcon />
+          <GetAppIcon style={{ fontSize: "2vw" }} />
         </SCustomIconButton>
       </div>
     </>

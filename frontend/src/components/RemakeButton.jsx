@@ -29,7 +29,7 @@ export const RemaikButton = memo((props) => {
   return (
     <SStyledButton style={ButtonStyle} onClick={onClickRemake}>
       <span>remake</span>
-      <ReplayIcon></ReplayIcon>
+      <ReplayIcon style={{ fontSize: "2vw" }} />
     </SStyledButton>
   );
 });
