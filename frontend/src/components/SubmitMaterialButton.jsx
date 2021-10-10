@@ -15,12 +15,11 @@ export const SubmitMaterialButton = () => {
 
   const ButtonStyle = {
     color: "white",
-    fontSize: "20px",
+    fontSize: "2vw",
     fontWeight: "bold",
     borderRadius: "30px",
-    width: "120px",
-    height: "48px",
-    radius: "30px",
+    height: "4vw",
+    width: "12vw",
   };
 
   const submitImage = (e) => {
@@ -42,49 +41,54 @@ export const SubmitMaterialButton = () => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <SBackground>
-        <div>
-          <H2>素材にしたい画像を選択してください</H2>
-          <Form onSubmit={submitImage} encType="multipart/form-data">
-            <label>
-              <input
-                style={{ display: "none" }}
-                type="file"
-                name="file"
-                accept="image/*"
-                multiple="multipel"
-              />
-              <SStyledButton style={ButtonStyle} component="span">
-                SELECT
-              </SStyledButton>
-            </label>
+    <SBackground>
+      <div>
+        <Text>
+          <span>素材にしたい画像を選択してください</span>
+        </Text>
 
-            <SCustomIconButton style={ButtonStyle} type="submit">
-              <span>upload</span>
-              <PublishIcon />
-            </SCustomIconButton>
-            {openSelect ? null : (
-              <>
-                {openLoadingImage ? (
-                  <SReactLoading type="spokes" width="350px" color="#f5f29d" />
-                ) : null}
-              </>
-            )}
-          </Form>
+        <LoadingPosition>
+          {openSelect ? null : (
+            <>
+              {openLoadingImage ? (
+                <ReactLoading type="spin" width="35vmax" color="#f5f29d" />
+              ) : null}
+            </>
+          )}
+        </LoadingPosition>
 
-          <SelectButtonPosition>
-            <SelectButton
-              openSelect={openSelect}
-              changeOpenSelect={changeOpenSelect}
+        <Form onSubmit={submitImage} encType="multipart/form-data">
+          <label>
+            <input
+              style={{ display: "none" }}
+              type="file"
+              name="file"
+              accept="image/*"
+              multiple="multipel"
             />
-          </SelectButtonPosition>
-        </div>
-        <SHomeButtonPosition>
-          <BackHomeButton />
-        </SHomeButtonPosition>
-      </SBackground>
-    </div>
+            <SStyledButton style={ButtonStyle} component="span">
+              SELECT
+            </SStyledButton>
+          </label>
+
+          <SCustomIconButton style={ButtonStyle} type="submit">
+            <span>upload</span>
+            <PublishIcon style={{ fontSize: "2vw" }} />
+          </SCustomIconButton>
+        </Form>
+      </div>
+
+      <SelectButtonPosition>
+        <SelectButton
+          openSelect={openSelect}
+          changeOpenSelect={changeOpenSelect}
+        />
+      </SelectButtonPosition>
+
+      <SHomeButtonPosition>
+        <BackHomeButton />
+      </SHomeButtonPosition>
+    </SBackground>
   );
 };
 
@@ -98,42 +102,43 @@ const SBackground = styled.header`
   background-size: cover;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   box-sizing: border-box;
   border: solid 10px;
   border-color: #505867;
   margin: 0px;
   padding: 0px;
-  position: relative;
 `;
 
-const SReactLoading = styled(ReactLoading)`
-  position: absolute;
-  bottom: 350%;
-`;
-
-const H2 = styled.h2`
+const Text = styled.div`
   background: #dfefff;
   box-shadow: 0px 0px 0px 5px #dfefff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vmax;
+  font-weight: bold;
+  width: 50vmax;
   border: dashed 2px black;
-  padding: 0.2em 0.5em;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding: 0.2vmax 0.5vmax;
+  position: relative;
+  bottom: 5vmax;
 `;
 
 const Form = styled.form`
   display: flex;
   justify-content: center;
-  gap: 0 50px;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  gap: 0 4vw;
+`;
+
+const LoadingPosition = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -20vmax;
 `;
 
 const SStyledButton = styled(Button)`

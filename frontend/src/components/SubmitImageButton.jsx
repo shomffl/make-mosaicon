@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { RemaikButton } from "./RemakeButton";
 import { OpenCreateContext } from "../providers/OpenCreateProvider";
@@ -22,10 +22,6 @@ export const SubmitImageButton = (props) => {
     height: "4vw",
     width: "12vw",
   };
-
-  // useEffect(() => {
-  //   axios.get("/remake");
-  // }, []);
 
   const submitImage = (e) => {
     setOpenCreate(!openCreate);
@@ -101,7 +97,6 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   gap: 0 4vw;
 `;
 
