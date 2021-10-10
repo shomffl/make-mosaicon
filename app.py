@@ -77,6 +77,8 @@ def upload():
     global make_course
     if request.method == "POST":
         download_file_path = "./frontend/build/static/images/download_images"
+        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
+        randstr = ''.join(randlst)
         file = request.files["file"]
         ascii_filename = Kakashi.japanese_to_ascii(file.filename)
         save_filename = secure_filename(ascii_filename)
@@ -85,14 +87,13 @@ def upload():
         name = glob.glob(f"{download_file_path}/{save_filename}")
         img = Image.open(name[0])
         img_resize = img.resize((400, 400))
-        img_resize.save(os.path.join(download_file_path,"resize_image.png"))
+        img_resize.save(os.path.join(download_file_path,f"resize_image{randstr}.png"))
         split_filename = save_filename.split('.')
         send_filename = split_filename[0]
 
-        filename = f"{download_file_path}/resize_image.png"
 
-        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
-        randstr = ''.join(randlst)
+
+        filename = f"{download_file_path}/resize_image{randstr}.png"
 
         if make_course == True:
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
