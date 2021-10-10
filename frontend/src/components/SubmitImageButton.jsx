@@ -23,9 +23,9 @@ export const SubmitImageButton = (props) => {
     width: "12vw",
   };
 
-  useEffect(() => {
-    axios.get("/remake");
-  }, []);
+  // useEffect(() => {
+  //   axios.get("/remake");
+  // }, []);
 
   const submitImage = (e) => {
     setOpenCreate(!openCreate);
