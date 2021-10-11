@@ -97,10 +97,11 @@ def upload():
         filename = f"{download_file_path}/resize_image{randstr}.png"
 
         if make_course == True:
+            time.sleep(1)
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
 
-            time.sleep(2)
+            time.sleep(1)
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("simple_images/small_material_files")
             original_rgb = read_original.get_rgb()
@@ -108,19 +109,23 @@ def upload():
             compare_rgb = CompareColors(original_rgb, material_rgb)
             culculate_difference = compare_rgb.compare()
 
-            time.sleep(2)
+            time.sleep(1)
             create_mosaic = ConnectImage(8, 400, culculate_difference,"simple_images", f"mosaic_image{randstr}.png")
             create_mosaic.connect_image()
 
         elif make_course == False:
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
+
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("fullscale_images/small_material_files")
-            cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
-            create = ConnectImage(8, 400, cul, "fullscale_images", f"mosaic_image{randstr}.png")
-            create.connect_image()
+            original_rgb = read_original.get_rgb()
+            material_rgb = read_material.get_rgb()
+            compare_rgb = CompareColors(original_rgb, material_rgb)
+            culculate_difference = compare_rgb.compare()
 
+            create_mosaic = ConnectImage(8, 400, culculate_difference, "fullscale_images", f"mosaic_image{randstr}.png")
+            create_mosaic.connect_image()
 
 
         cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
