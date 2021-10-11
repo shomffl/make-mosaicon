@@ -98,9 +98,9 @@ def upload():
         if make_course == True:
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
-            # read_original = GetRgb("/split_original_files")
-            # read_material = GetRgb("simple_images/small_material_files")
-            # cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
+            read_original = GetRgb("/split_original_files")
+            read_material = GetRgb("simple_images/small_material_files")
+            cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
             # create = ConnectImage(8, 400, cul,"simple_images", f"mosaic_image{randstr}.png")
             # create.connect_image()
 
@@ -119,7 +119,7 @@ def upload():
         cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/resize_image{randstr}.png", public_id=f"download_images/resize_image{randstr}")
 
 
-        return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
+        return {"image":f"https://res.cloudinary.com/shoimages/download_images/resize_image{randstr}.png"}
 
 
 @app.route("/make",methods=["GET", "POST"])
