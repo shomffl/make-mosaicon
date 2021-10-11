@@ -14,6 +14,7 @@ import glob
 import cv2
 import random
 import string
+import time
 
 
 CLOUD_NAME = os.environ["CLOUD_NAME"]
@@ -98,6 +99,8 @@ def upload():
         if make_course == True:
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
+
+            time.sleep(10)
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("simple_images/small_material_files")
             cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
