@@ -77,6 +77,7 @@ def download():
 def upload():
     global make_course
     if request.method == "POST":
+        time.sleep(1)
         download_file_path = "./frontend/build/static/images/download_images"
         randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
         randstr = ''.join(randlst)
