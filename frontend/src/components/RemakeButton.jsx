@@ -5,6 +5,7 @@ import { IconButton } from "@material-ui/core";
 import { OpenCreateContext } from "../providers/OpenCreateProvider";
 import styled from "styled-components";
 import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
+import axios from "axios";
 
 export const RemaikButton = memo((props) => {
   const { changeImage } = props;
@@ -21,6 +22,10 @@ export const RemaikButton = memo((props) => {
   };
 
   const onClickRemake = () => {
+    const Clear = () => {
+      axios.get("/remake");
+    };
+    Clear();
     changeImage(logo);
     setOpenCreate(!openCreate);
     setOpenDownload(!openDownload);

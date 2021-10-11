@@ -163,8 +163,6 @@ def make_files():
 @app.route("/remake",methods=["GET", "POST"])
 def remake_files():
     base_url ="./frontend/build/static/images"
-    shutil.rmtree(f"{base_url}/download_images/")
-    os.mkdir(f"{base_url}/download_images/")
     shutil.rmtree(f"{base_url}/split_original_files/")
     os.mkdir(f"{base_url}/split_original_files/")
 
