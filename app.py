@@ -110,9 +110,9 @@ def upload():
             compare_rgb = CompareColors(original_rgb, material_rgb)
             culculate_difference = compare_rgb.compare()
 
-            # time.sleep(1)
-            # create_mosaic = ConnectImage(8, 400, culculate_difference,"simple_images", f"mosaic_image{randstr}.png")
-            # create_mosaic.connect_image()
+            time.sleep(1)
+            create_mosaic = ConnectImage(8, 400, culculate_difference,"simple_images", f"mosaic_image{randstr}.png")
+            create_mosaic.connect_image()
 
         elif make_course == False:
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
@@ -129,11 +129,11 @@ def upload():
             create_mosaic.connect_image()
 
 
-        # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
-        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/resize_image{randstr}.png", public_id=f"download_images/resize_image{randstr}")
+        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
+        # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/resize_image{randstr}.png", public_id=f"download_images/resize_image{randstr}")
 
 
-        return {"image":f"https://res.cloudinary.com/shoimages/download_images/resize_image{randstr}.png"}
+        return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
 
 
 @app.route("/make",methods=["GET", "POST"])

@@ -63,13 +63,8 @@ class ConnectImage():
         img_num = int(side / self.size)
 
         list1 = np.array_split(self.min_numbers, img_num)
-        big_img = []
-        for i in list1:
-            small_img = []
-            for j in range(img_num):
-                read = cv2.imread(f"{BASE_URL}/{self.course_name}/big_material_files/canvas{i[j]}.png")
-                small_img.append(read)
-            big_img.append(small_img)
+
+        big_img = [[cv2.imread(f"{BASE_URL}/{self.course_name}/big_material_files/canvas{i[j]}.png")  for j in range(img_num)] for i in list1]
 
 
         cul = cv2.vconcat([cv2.hconcat(i) for i in big_img])
