@@ -1,4 +1,4 @@
-import React, { memo, useContext } from "react";
+import React, { memo, useEffect, useContext } from "react";
 import logo from "../display.png";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { IconButton } from "@material-ui/core";
@@ -21,11 +21,11 @@ export const RemaikButton = memo((props) => {
     width: "13vw",
   };
 
+  useEffect(() => {
+    axios.get("/remake");
+  }, []);
+
   const onClickRemake = () => {
-    const Clear = () => {
-      axios.get("/remake");
-    };
-    Clear();
     changeImage(logo);
     setOpenCreate(!openCreate);
     setOpenDownload(!openDownload);
