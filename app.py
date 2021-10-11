@@ -103,7 +103,10 @@ def upload():
             time.sleep(2)
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("simple_images/small_material_files")
-            cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
+            original_rgb = read_original.get_rgb()
+            material_rgb = read_material.get_rgb()
+            compare_rgb = CompareColors(original_rgb, material_rgb)
+            culculate_difference = compare_rgb.compare()
 
             # create = ConnectImage(8, 400, cul,"simple_images", f"mosaic_image{randstr}.png")
             # create.connect_image()
