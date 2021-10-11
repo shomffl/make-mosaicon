@@ -100,12 +100,12 @@ def upload():
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
 
-            time.sleep(2)
+            time.sleep(5)
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("simple_images/small_material_files")
             cul = CompareColors(read_original.get_rgb(), read_material.get_rgb()).compare()
 
-            time.sleep(2)
+            time.sleep(5)
             create = ConnectImage(8, 400, cul,"simple_images", f"mosaic_image{randstr}.png")
             create.connect_image()
 
