@@ -128,7 +128,7 @@ def upload():
         # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/resize_image{randstr}.png", public_id=f"download_images/resize_image{randstr}")
 
 
-        return {"image":f"https://res.cloudinary.com/shoimages/w_1000,h_1000/download_images/{send_filename}{randstr}.png"}
+        return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
 
 
 @app.route("/make",methods=["GET", "POST"])
