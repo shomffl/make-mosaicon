@@ -160,6 +160,8 @@ def remake_files():
     base_url ="./frontend/build/static/images"
     shutil.rmtree(f"{base_url}/split_original_files/")
     os.mkdir(f"{base_url}/split_original_files/")
+    shutil.rmtree(f"{base_url}/download_images/")
+    os.mkdir(f"{base_url}/download_images/")
 
     return {"name": "showatanabe"}
 
