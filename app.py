@@ -14,7 +14,6 @@ import glob
 import cv2
 import random
 import string
-import time
 
 
 CLOUD_NAME = os.environ["CLOUD_NAME"]
@@ -98,11 +97,9 @@ def upload():
         filename = f"{download_file_path}/resize_image{randstr}.png"
 
         if make_course == True:
-            time.sleep(1)
             split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
             split_image.split_image()
 
-            time.sleep(1)
             read_original = GetRgb("/split_original_files")
             read_material = GetRgb("simple_images/small_material_files")
             original_rgb = read_original.get_rgb()
@@ -110,7 +107,6 @@ def upload():
             compare_rgb = CompareColors(original_rgb, material_rgb)
             culculate_difference = compare_rgb.compare()
 
-            time.sleep(1)
             create_mosaic = ConnectImage(8, 400, culculate_difference,"simple_images", f"mosaic_image{randstr}.png")
             create_mosaic.connect_image()
 
