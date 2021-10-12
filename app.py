@@ -124,7 +124,7 @@ def upload():
             create_mosaic.connect_image()
 
 
-        # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
+        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
         # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/resize_image{randstr}.png", public_id=f"download_images/resize_image{randstr}")
 
 
