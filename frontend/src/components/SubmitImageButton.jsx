@@ -38,11 +38,9 @@ export const SubmitImageButton = (props) => {
           setImageUrl(result.data.image);
           setOpenDownload(!openDownload);
         })
-        // .catch((error) => {
-        //   alert(
-        //     "エラーが出ました！ リロードした後に画像を再送信してください。"
-        //   );
-        // });
+        .catch((error) => {
+          console.log(error.response);
+        });
     };
     Upload();
   };
