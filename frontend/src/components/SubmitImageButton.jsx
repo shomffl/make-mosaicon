@@ -39,7 +39,9 @@ export const SubmitImageButton = (props) => {
           setOpenDownload(!openDownload);
         })
         .catch((error) => {
-          console.log(error.response);
+          alert(
+            "エラーが出ました！ リロードした後に画像を再送信してください。"
+          );
         });
     };
     Upload();
