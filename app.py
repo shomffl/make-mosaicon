@@ -14,6 +14,7 @@ import glob
 import cv2
 import random
 import string
+import time
 
 
 CLOUD_NAME = os.environ["CLOUD_NAME"]
@@ -124,6 +125,7 @@ def upload():
             create_mosaic.connect_image()
 
 
+        time.sleep(1)
         cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
         # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/resize_image{randstr}.png", public_id=f"download_images/resize_image{randstr}")
 
