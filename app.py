@@ -125,14 +125,13 @@ def upload():
             create_mosaic.connect_image()
 
 
-        time.sleep(1)
-        cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
+        # time.sleep(1)
+        # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/mosaic_image{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
         # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/resize_image{randstr}.png", public_id=f"download_images/resize_image{randstr}")
 
 
-        return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
-        # return {"image":f"https://res.cloudinary.com/shoimages/download_images/canvas39flMyt2.png"}
-        # return {"image":f"https://res.cloudinary.com/shoimages/download_images/canvas39flMyt2.png"}
+        # return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
+        return {"image":f"https://res.cloudinary.com/shoimages/download_images/canvas39flMyt2.png"}
 
 
 @app.route("/make",methods=["GET", "POST"])
