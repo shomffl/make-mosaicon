@@ -7,7 +7,7 @@ import styled from "styled-components";
 export const DownloadImage = memo((props) => {
   const { imageUrl } = props;
   const onClickDownload = () => {
-    saveAs(imageUrl, "mosaic_image");
+    saveAs(`${process.env.PUBLIC_URL}/static/images/download_images/${imageUrl}`, "mosaic_image");
   };
 
   const ButtonStyle = {
