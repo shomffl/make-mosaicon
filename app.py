@@ -2,8 +2,7 @@ from flask import Flask, request, render_template
 from flask.helpers import send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import  secure_filename
-from api.get_rgb import GetRgb, CompareColors, ConnectImage
-from api.split import SplitOriginal
+from api.make_mosaicart import MakeMosaicon
 import pykakasi
 import shutil
 import os
@@ -12,11 +11,13 @@ import glob
 import cv2
 import random
 import string
-import time
 
 
+
+#simpleモードとfullscaleモードを判別
 make_course = ""
 
+#ファイル名をアルファベットに変換
 class Kakashi:
     kakashi = pykakasi.kakasi()
     kakashi.setMode("H", "a")
@@ -78,38 +79,18 @@ def upload():
         img_resize.save(os.path.join(download_file_path,f"resize_image{randstr}.png"))
 
 
-        filename = f"{download_file_path}/resize_image{randstr}.png"
+        reference_filename = f"{download_file_path}/resize_image{randstr}.png"
 
         if make_course == True:
-            split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
-            split_image.split_image()
-
-            read_original = GetRgb("/split_original_files")
-            read_material = GetRgb("simple_images/small_material_files")
-            original_rgb = read_original.get_rgb()
-            material_rgb = read_material.get_rgb()
-            compare_rgb = CompareColors(original_rgb, material_rgb)
-            culculate_difference = compare_rgb.compare()
-
-            create_mosaic = ConnectImage(8, 400, culculate_difference,"simple_images", f"{randstr}.png")
-            create_mosaic.connect_image()
+            make_mosaicon = MakeMosaicon("simple_images", "./frontend/build/static/images", reference_filename, randstr)
+            make_mosaicon.make_mosaic()
 
         elif make_course == False:
-            split_image = SplitOriginal(8, filename,"./frontend/build/static/images/split_original_files")
-            split_image.split_image()
-
-            read_original = GetRgb("/split_original_files")
-            read_material = GetRgb("fullscale_images/small_material_files")
-            original_rgb = read_original.get_rgb()
-            material_rgb = read_material.get_rgb()
-            compare_rgb = CompareColors(original_rgb, material_rgb)
-            culculate_difference = compare_rgb.compare()
-
-            create_mosaic = ConnectImage(8, 400, culculate_difference, "fullscale_images", f"{randstr}.png")
-            create_mosaic.connect_image()
-            time.sleep(1)
+            make_mosaicon = MakeMosaicon("fullscale_images", "./frontend/build/static/images", reference_filename, randstr)
+            make_mosaicon.make_mosaic()
 
         return {"image" : f"{randstr}.png"}
+
 
 
 @app.route("/make",methods=["GET", "POST"])
