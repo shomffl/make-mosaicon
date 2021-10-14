@@ -2,13 +2,14 @@ from flask import Flask, request, render_template
 from flask.helpers import send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import  secure_filename
+from api.download_image import DownloadMaterialImage
 from api.make_mosaicart import MakeMosaicon
-import pykakasi
+from api.convert_name import Kakashi
 import shutil
 import os
+import cv2
 from PIL import Image
 import glob
-import cv2
 import random
 import string
 
@@ -17,69 +18,46 @@ import string
 #simpleモードとfullscaleモードを判別
 make_course = ""
 
-#ファイル名をアルファベットに変換
-class Kakashi:
-    kakashi = pykakasi.kakasi()
-    kakashi.setMode("H", "a")
-    kakashi.setMode("K", "a")
-    kakashi.setMode("J", "a")
-    conv = kakashi.getConverter()
-
-    @classmethod
-    def japanese_to_ascii(cls, japanese):
-        return cls.conv.do(japanese)
-
-
 app = Flask(__name__, static_folder='frontend/build', static_url_path='')
 CORS(app)
 
 
 #fullscaleモードの素材画像を保存する
-@app.route("/download",methods=["GET", "POST"])
+@app.route("/download",methods=["POST"])
 def download():
-    if request.method == "GET":
-        return render_template("index.html")
-    elif request.method == "POST":
+    if request.method == "POST":
         download_material_path = "./frontend/build/static/images/fullscale_images"
         data = request.files.getlist("file")
-        for id,name in enumerate(data):
-            ascii_filename = Kakashi.japanese_to_ascii(name.filename)
-            save_filename = secure_filename(ascii_filename)
-            name.save(os.path.join(f"{download_material_path}/download_material_files/", save_filename))
 
-            img = cv2.imread(f"{download_material_path}/download_material_files/{save_filename}")
-            height = img.shape[0]
-            width = img.shape[1]
-            adjust_height = (41 / height)
-            adjust_width = (41/ width)
-            img1 = cv2.resize(img, (int(width * adjust_width), int(height * adjust_height)))
-            img2 = img1[0: 40, 0: 40]
-            cv2.imwrite(f"{download_material_path}/big_material_files/canvas{id}.png", img2)
-            img3 = cv2.resize(img2, (5, 5))
-            cv2.imwrite(f"{download_material_path}/small_material_files/canvas{id}.png", img3)
+        download_images = DownloadMaterialImage(download_material_path, data)
+        download_images.save_files()
 
         return {"bool": "true"}
+
+    else:
+        return render_template("index.html")
+
 
 
 @app.route("/upload",methods=["POST"])
 def upload():
     global make_course
     if request.method == "POST":
-        download_file_path = "./frontend/build/static/images/download_images"
+        download_filepath = "./frontend/build/static/images/download_images"
         randlst = [random.choice(string.ascii_letters + string.digits) for i in range(8)]
         randstr = ''.join(randlst)
         file = request.files["file"]
+
         ascii_filename = Kakashi.japanese_to_ascii(file.filename)
         save_filename = secure_filename(ascii_filename)
-        file.save(os.path.join(download_file_path, save_filename))
+        file.save(os.path.join(download_filepath, save_filename))
 
-        name = glob.glob(f"{download_file_path}/{save_filename}")
-        img = Image.open(name[0])
-        img_resize = img.resize((400, 400))
-        img_resize.save(os.path.join(download_file_path,f"resize_image{randstr}.png"))
+        img = cv2.imread(f"{download_filepath}/{save_filename}")
+        resize_img = cv2.resize(img, (400,400))
+        cv2.imwrite(f"{download_filepath}/resize_image{randstr}.png", resize_img)
 
 
-        reference_filename = f"{download_file_path}/resize_image{randstr}.png"
+        reference_filename = f"{download_filepath}/resize_image{randstr}.png"
 
         if make_course == True:
             make_mosaicon = MakeMosaicon("simple_images", "./frontend/build/static/images", reference_filename, randstr)
@@ -90,6 +68,11 @@ def upload():
             make_mosaicon.make_mosaic()
 
         return {"image" : f"{randstr}.png"}
+
+    else:
+        return render_template("index.html")
+
+
 
 
 
