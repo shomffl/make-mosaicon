@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useContext } from "react";
+import React, { memo, useContext } from "react";
 import logo from "../display.png";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { IconButton } from "@material-ui/core";
@@ -19,7 +19,6 @@ export const RemaikButton = memo((props) => {
     height: "4vw",
     width: "13vw",
   };
-
 
   const onClickRemake = () => {
     changeImage(logo);
