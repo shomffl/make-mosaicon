@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 from flask.helpers import send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import  secure_filename
-from api.download_image import DownloadMaterialImage
+from api.download_image import DownloadOriginalImage, DownloadMaterialImage
 from api.make_mosaicart import MakeMosaicon
 from api.convert_name import Kakashi
 import shutil
@@ -48,14 +48,8 @@ def upload():
         randstr = ''.join(randlst)
         file = request.files["file"]
 
-        ascii_filename = Kakashi.japanese_to_ascii(file.filename)
-        save_filename = secure_filename(ascii_filename)
-        file.save(os.path.join(download_filepath, save_filename))
-
-        img = cv2.imread(f"{download_filepath}/{save_filename}")
-        resize_img = cv2.resize(img, (400,400))
-        cv2.imwrite(f"{download_filepath}/resize_image{randstr}.png", resize_img)
-
+        download_image = DownloadOriginalImage(download_filepath, randstr, file)
+        download_image.save_file()
 
         reference_filename = f"{download_filepath}/resize_image{randstr}.png"
 
