@@ -65,7 +65,7 @@ def upload():
     global make_course
     if request.method == "POST":
         download_file_path = "./frontend/build/static/images/download_images"
-        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
+        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(8)]
         randstr = ''.join(randlst)
         file = request.files["file"]
         ascii_filename = Kakashi.japanese_to_ascii(file.filename)
