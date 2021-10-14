@@ -7,25 +7,13 @@ from api.split import SplitOriginal
 import pykakasi
 import shutil
 import os
-import cloudinary
-import cloudinary.uploader
 from PIL import Image
 import glob
 import cv2
 import random
 import string
+import time
 
-
-CLOUD_NAME = os.environ["CLOUD_NAME"]
-API_KEY = os.environ["API_KEY"]
-API_SECRET = os.environ["API_SECRET"]
-
-
-cloudinary.config(
-  cloud_name = CLOUD_NAME,
-  api_key = API_KEY,
-  api_secret = API_SECRET
-)
 
 make_course = ""
 
@@ -88,9 +76,6 @@ def upload():
         img = Image.open(name[0])
         img_resize = img.resize((400, 400))
         img_resize.save(os.path.join(download_file_path,f"resize_image{randstr}.png"))
-        split_filename = save_filename.split('.')
-        send_filename = split_filename[0]
-
 
 
         filename = f"{download_file_path}/resize_image{randstr}.png"
@@ -122,11 +107,8 @@ def upload():
 
             create_mosaic = ConnectImage(8, 400, culculate_difference, "fullscale_images", f"{randstr}.png")
             create_mosaic.connect_image()
+            time.sleep(1)
 
-        # cloudinary.uploader.upload(file=f"./frontend/build/static/images/download_images/{randstr}.png", public_id=f"download_images/{send_filename}{randstr}")
-
-
-        # return {"image":f"https://res.cloudinary.com/shoimages/download_images/{send_filename}{randstr}.png"}
         return {"image" : f"{randstr}.png"}
 
 
