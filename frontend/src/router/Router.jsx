@@ -3,16 +3,20 @@ import React from "react";
 import { SubmitMaterialButton } from "../components/SubmitMaterialButton";
 import { ImageDisplay } from "../components/ImageDisplay";
 import { HomeDisplay } from "../components/HomeDisplay";
-import { ExplanationDisplay } from "../components/ExplanationDisplay";
+import { AppExplanationDisplay } from "../components/AppExplanationDisplay";
+import { FunctionExplanationDisplay } from "../components/FunctionExplanationDisplay";
 
 export const Router = () => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path="/">
-          <ExplanationDisplay />
+          <AppExplanationDisplay />
         </Route>
-        <Route exact path="/home">
+        <Route path="/function">
+          <FunctionExplanationDisplay />
+        </Route>
+        <Route path="/home">
           <HomeDisplay />
         </Route>
         <Route path="/fullscale">
