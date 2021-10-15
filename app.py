@@ -4,15 +4,11 @@ from flask_cors import CORS
 from werkzeug.utils import  secure_filename
 from api.download_image import DownloadOriginalImage, DownloadMaterialImage
 from api.make_mosaicart import MakeMosaicon
-from api.convert_name import Kakashi
 import shutil
 import os
-import cv2
-from PIL import Image
-import glob
 import random
 import string
-
+import time
 
 
 #simpleモードとfullscaleモードを判別
@@ -61,12 +57,12 @@ def upload():
             make_mosaicon = MakeMosaicon("fullscale_images", "./frontend/build/static/images", reference_filename, randstr)
             make_mosaicon.make_mosaic()
 
+        time.sleep(2)
+
         return {"image" : f"{randstr}.png"}
 
     else:
         return render_template("index.html")
-
-
 
 
 
@@ -81,14 +77,18 @@ def make_files():
         os.mkdir(f"{base_url}/fullscale_images/big_material_files")
         os.mkdir(f"{base_url}/fullscale_images/small_material_files")
         os.mkdir(f"{base_url}/fullscale_images/download_material_files")
+    else:
+        pass
 
     if split_exist == False:
         os.mkdir(f"{base_url}/split_original_files/")
-
+    else:
+        pass
 
     if donwload_exist == False:
         os.mkdir(f"{base_url}/download_images/")
-
+    else:
+        pass
 
     return {"name": "showatanabe"}
 
