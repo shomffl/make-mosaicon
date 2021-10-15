@@ -4,6 +4,7 @@ from api.make_process.connect_images import ConnectImage
 from api.make_process.split_image import SplitImage
 
 
+#モザイクアートを作成するための処理を一つにまとめたクラス
 class MakeMosaicon:
 
     def __init__(self, create_course, base_path, reference_filename, mosaic_filename):

@@ -50,14 +50,14 @@ export const HomeDisplay = () => {
           </SlideInLeft>
         </Title>
 
-          <ButtonPosition>
-            <StyledButton1 style={buttonStyle} onClick={onClickSubmitArea}>
-              SIMPLE
-            </StyledButton1>
-            <StyledButton2 style={buttonStyle} onClick={onClickSubmitManyImage}>
-              FULLSCALE
-            </StyledButton2>
-          </ButtonPosition>
+        <ButtonPosition>
+          <StyledButton1 style={buttonStyle} onClick={onClickSubmitArea}>
+            SIMPLE
+          </StyledButton1>
+          <StyledButton2 style={buttonStyle} onClick={onClickSubmitManyImage}>
+            FULLSCALE
+          </StyledButton2>
+        </ButtonPosition>
       </Background>
     </div>
   );
@@ -88,14 +88,14 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  bottom: 5vw;
+  bottom: 5vmax;
 `;
 
 const ButtonPosition = styled.div`
   display: flex;
-  gap: 0 5vw;
+  gap: 0 5vmax;
   position: relative;
-  bottom: 3vw;
+  bottom: 3vmax;
 `;
 
 const slideInRight = keyframes`
@@ -127,44 +127,44 @@ const slideInLeft = keyframes`
 const StyledButton1 = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   &:hover {
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.2vw);
     background: linear-gradient(45deg, red, blue);
     boxshadow: "0 3px 5px 2px rgba(255, 105, 135, 0.3)";
   }
 
   &:active {
-    transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.1vw);
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
   }
 `;
 
 const StyledButton2 = styled(Button)`
   background: linear-gradient(45deg, red 30%, #ff8e53 90%);
   &:hover {
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.2vw);
     background: linear-gradient(45deg, red, blue);
     boxshadow: "0 3px 5px 2px rgba(255, 105, 135, 0.3)";
   }
   &:active {
-    transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.1vw);
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
   }
 `;
 
 const SlideInRight = styled.div`
   animation: ${slideInRight} 1.25s cubic-bezier(0.25, 1, 0.75, 1.5) 1 forwards;
-  font-size: 5vw;
+  font-size: 5vmax;
   font-weight: 700;
-  letter-spacing: 1vw;
+  letter-spacing: 1vmax;
   padding: 0px;
-  margin-bottom: -20px;
+  margin-bottom: -2vmax;
 `;
 
 const SlideInLeft = styled.div`
   animation: ${slideInLeft} 1.25s cubic-bezier(0.25, 1, 0.75, 1.5) 1 forwards;
-  font-size: 8vw;
+  font-size: 8vmax;
   font-weight: 700;
-  letter-spacing: 1vw;
+  letter-spacing: 1vmax;
   padding: 0px;
   margin: 0px;
 `;
