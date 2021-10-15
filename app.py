@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template
 from flask.helpers import send_from_directory
-from flask_cors import CORS
 from werkzeug.utils import  secure_filename
 from api.download_image import DownloadOriginalImage, DownloadMaterialImage
 from api.make_mosaicart import MakeMosaicon
@@ -15,7 +14,6 @@ import time
 make_course = ""
 
 app = Flask(__name__, static_folder='frontend/build', static_url_path='')
-CORS(app)
 
 
 #fullscaleモードの素材画像を保存する
