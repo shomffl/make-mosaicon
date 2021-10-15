@@ -3,8 +3,8 @@
 # dependencies
 /.pnp
 .pnp.js
-__pycache__/
-node_modules/
+__pycache__
+node_modules
 
 # testing
 /coverage
