@@ -34,9 +34,11 @@ export const SubmitImageButton = (props) => {
           header: { "content-type": "multipart/form-data" },
         })
         .then((result) => {
-          changeImage(`${process.env.PUBLIC_URL}/static/images/download_images/${result.data.image}`);
-          setImageUrl(result.data.image);
           setOpenDownload(!openDownload);
+          changeImage(
+            `${process.env.PUBLIC_URL}/static/images/download_images/${result.data.image}`
+          );
+          setImageUrl(result.data.image);
         })
         .catch((error) => {
           alert(
