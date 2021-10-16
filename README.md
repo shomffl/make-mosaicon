@@ -36,7 +36,6 @@ MAKE MOSAICON は SNS で使うアイコンをモザイクアートに変換す�
 # Requirement
 
 - Flask 2.0.1
-- gunicorn 20.1.0
 - numpy 1.21.2
 - opencv-python 4.5.3.56
 - pykakasi 2.2.1
@@ -46,7 +45,6 @@ MAKE MOSAICON は SNS で使うアイコンをモザイクアートに変換す�
 
 ```bash
 pip install Flask
-pip install gunicorn
 pip install numpy
 pip install opencv-python
 pip install pykakasi
@@ -56,12 +54,12 @@ pip install pykakasi
 
 ```bash
 git clone https://github.com/shomffl/make-mosaicon.git
+
+#ルートディレクトリで
 flask run
 ```
 
 # Author
-
-作成情報を列挙する
 
 - 渡邊頌
 - 青山学院大学社会情報学部社会情報学科
