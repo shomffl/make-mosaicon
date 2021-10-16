@@ -49,7 +49,7 @@ export const FunctionExplanationDisplay = () => {
           <div style={{ fontSize: "1.5vmax" }}>
             このモードではモザイクアート作成に必要な大量の素材画像を用意する必要がありません。モザイクアートに変換したい画像1枚用意するだけで簡単に作成することができます。手軽にモザイクアートを楽しみたい人にはSimpleモードがおすすめです。
           </div>
-          <br/>
+          <br />
           <div style={{ fontSize: "2vmax", fontWeight: "bold" }}>
             ⇒ FullScaleモード
           </div>
