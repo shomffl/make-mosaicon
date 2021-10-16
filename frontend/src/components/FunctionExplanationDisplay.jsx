@@ -22,10 +22,7 @@ export const FunctionExplanationDisplay = () => {
 
   return (
     <Background>
-      <ExplainArea>
-        <Title>
-          <span>〇 機能説明</span>
-        </Title>
+      <div>
         <ExplainRequirements>
           <span style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
             ▽ まず初めに…
@@ -36,38 +33,38 @@ export const FunctionExplanationDisplay = () => {
           </span>
 
           <br />
-          <span style={{ fontSize: "1.5vmax" }}>
+          <span style={{ fontSize: "1.5vw" }}>
             しかし、素材の画像を100枚以上用意するのも大変ですよね？
           </span>
           <br />
-          <span style={{ fontSize: "1.5vmax" }}>
+          <span style={{ fontSize: "1.5vw" }}>
             そこで今回は素材の画像を用意せずとも手軽にモザイクアートを作成することが出来る機能を設けました。
           </span>
         </ExplainRequirements>
 
         <ExplainMode>
-          <span style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
+          <span style={{ fontSize: "2.5vw", fontWeight: "bold" }}>
             ▽ 2種類のモードについて
           </span>
           <br />
-          <span style={{ fontSize: "2vmax", fontWeight: "bold" }}>
+          <span style={{ fontSize: "2vw", fontWeight: "bold" }}>
             ⇒ Simpleモード
           </span>
           <br />
-          <span style={{ fontSize: "1.5vmax" }}>
+          <span style={{ fontSize: "1.5vw" }}>
             このモードではモザイクアート作成に必要な大量の素材画像を用意する必要がありません。モザイクアートに変換したい画像1枚用意するだけで簡単に作成することができます。手軽にモザイクアートを楽しみたい人にはSimpleモードがおすすめです。
           </span>
           <br />
           <br />
-          <span style={{ fontSize: "2vmax", fontWeight: "bold" }}>
+          <span style={{ fontSize: "2vw", fontWeight: "bold" }}>
             ⇒ FullScaleモード
           </span>
           <br />
-          <span style={{ fontSize: "1.5vmax" }}>
+          <span style={{ fontSize: "1.5vw" }}>
             このモードではモザイクアート作成に必要な大量の素材画像を用意する必要があります。しかし、その分オリジナリティのあるものを作れます。家族や友人とのたくさんの思い出を一枚のアートに閉じ込めたい人にはFullScaleモードがおすすめです。
           </span>
         </ExplainMode>
-      </ExplainArea>
+      </div>
 
       <SCustomButton style={ButtonStyle} onClick={onClickHome}>
         <span>START ⇒</span>
@@ -95,7 +92,7 @@ const Background = styled.header`
     ),
     url(${backgroundImage});
   background-size: cover;
-  min-height: 120vh;
+  min-height: 110vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,28 +102,14 @@ const Background = styled.header`
   border-color: #505867;
 `;
 
-const Title = styled.div`
-  position: relative;
-  top: -3vmax;
-  left: 1vmax;
-  font-size: 3.5vmax;
-  font-weight: bold;
-  letter-spacing: 0.2vmax;
-`;
-
-const ExplainArea = styled.div`
-  position: relative;
-  flex-direction: column;
-`;
-
 const ExplainRequirements = styled.div`
   position: relative;
-  top: 1.5vmax;
+  top: -2vmax;
 `;
 
 const ExplainMode = styled.div`
   position: relative;
-  top: 3vmax;
+  top: 1vmax;
 `;
 
 const circleanime = keyframes`
