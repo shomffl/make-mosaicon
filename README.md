@@ -15,6 +15,10 @@ MAKE MOSAICON は SNS で使うアイコンをモザイクアートに変換す�
 <img src="https://user-images.githubusercontent.com/89062440/137499765-3d0ee275-0b0c-456d-a807-c8912356cf96.gif" height="400vmax">
 <img src="https://user-images.githubusercontent.com/89062440/137502253-7f0cb8f1-fb19-47cc-8580-5eeefccbbda4.gif" width="400vmax">
 
+# Link
+デプロイ先はherokuです。  
+https://make-mosaicon.herokuapp.com/
+
 
 # Features
 
@@ -58,6 +62,10 @@ git clone https://github.com/shomffl/make-mosaicon.git
 #ルートディレクトリで
 flask run
 ```
+
+# Note
+稀に作成したモザイクアートが表示されないエラーがあります。現在、原因を調査中です。
+
 
 # Author
 
