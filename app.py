@@ -3,11 +3,10 @@ from flask.helpers import send_from_directory
 from werkzeug.utils import  secure_filename
 from api.download_image import DownloadOriginalImage, DownloadMaterialImage
 from api.make_mosaicart import MakeMosaicon
-import shutil
+from api.make_folder import MakeSimpleFolder, MakeFullScaleFolder
 import os
 import random
 import string
-import time
 
 
 #simpleモードとfullscaleモードを判別
@@ -55,8 +54,6 @@ def upload():
             make_mosaicon = MakeMosaicon("fullscale_images", "./frontend/build/static/images", reference_filename, randstr)
             make_mosaicon.make_mosaic()
 
-        time.sleep(2)
-
         return {"image" : f"{randstr}.png"}
 
     else:
@@ -88,19 +85,7 @@ def make_files():
     else:
         pass
 
-    return {"name": "showatanabe"}
-
-
-
-@app.route("/remake",methods=["GET", "POST"])
-def remake_files():
-    base_url ="./frontend/build/static/images"
-    shutil.rmtree(f"{base_url}/split_original_files/")
-    os.mkdir(f"{base_url}/split_original_files/")
-    shutil.rmtree(f"{base_url}/download_images/")
-    os.mkdir(f"{base_url}/download_images/")
-
-    return {"name": "showatanabe"}
+    return {"message": "file was maked"}
 
 
 @app.route("/delete",methods=["GET","POST"])
@@ -109,24 +94,18 @@ def delete_files():
     course = request.json["course"]
     make_course = course
     base_url = "./frontend/build/static/images"
-    if make_course == True:
-        shutil.rmtree(f"{base_url}/download_images/")
-        os.mkdir(f"{base_url}/download_images/")
-        shutil.rmtree(f"{base_url}/split_original_files/")
-        os.mkdir(f"{base_url}/split_original_files/")
-    elif make_course == False:
-        shutil.rmtree(f"{base_url}/download_images/")
-        os.mkdir(f"{base_url}/download_images/")
-        shutil.rmtree(f"{base_url}/split_original_files/")
-        os.mkdir(f"{base_url}/split_original_files/")
-        shutil.rmtree(f"{base_url}/fullscale_images/big_material_files/")
-        os.mkdir(f"{base_url}/fullscale_images/big_material_files/")
-        shutil.rmtree(f"{base_url}/fullscale_images/small_material_files/")
-        os.mkdir(f"{base_url}/fullscale_images/small_material_files/")
-        shutil.rmtree(f"{base_url}/fullscale_images/download_material_files/")
-        os.mkdir(f"{base_url}/fullscale_images/download_material_files/")
 
-    return {"name": "showatanabe"}
+    if make_course == True:
+        make_simple_folder = MakeSimpleFolder(base_url)
+        make_simple_folder.make_folder()
+
+    elif make_course == False:
+        make_simple_folder = MakeSimpleFolder(base_url)
+        make_simple_folder.make_folder()
+        make_fullscale_folder = MakeFullScaleFolder(base_url)
+        make_fullscale_folder.make_folder()
+
+    return {"message": "file was remaked"}
 
 
 @app.errorhandler(404)
