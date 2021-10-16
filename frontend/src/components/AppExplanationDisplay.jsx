@@ -8,12 +8,12 @@ export const AppExplanationDisplay = () => {
   const history = useHistory();
   const ButtonStyle = {
     color: "white",
-    fontSize: "2vw",
+    fontSize: "2vmax",
     fontWeight: "bold",
     borderRadius: "30px",
-    height: "4vw",
-    width: "15vw",
-    border: "2px solid silver",
+    height: "4vmax",
+    width: "15vmax",
+    border: "0.2vmax solid silver",
   };
 
   const onClickHome = () => {
@@ -206,11 +206,11 @@ const SCustomButton = styled(Button)`
 `;
 
 const SCustomButton2 = styled(Button)`
-  background: linear-gradient(45deg, #ff9ae3, #ff5f82);
+  background: linear-gradient(45deg, #ccaacc, #ccaacc);
 
   &:hover {
     transform: translateY(-0.1rem);
-    background: linear-gradient(45deg, #ff9ae3, #faf9d4);
+    background: linear-gradient(45deg, #cc3dcc, #faf9d4);
     boxshadow: "0 3px 5px 2px rgba(255, 105, 135, 0.3)";
   }
   &:active {
