@@ -41,9 +41,7 @@ export const SubmitImageButton = (props) => {
           setImageUrl(result.data.image);
         })
         .catch((error) => {
-          alert(
-            "エラーが出ました！ リロードした後に画像を再送信してください。"
-          );
+          alert("エラーが出ました！ 画像を再送信してください。");
         });
     };
     Upload();

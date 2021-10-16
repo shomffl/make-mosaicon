@@ -35,6 +35,11 @@ export const SubmitMaterialButton = () => {
         .then(() => {
           changeOpenSelect();
           setOpenLoadingImage(!openLoadingImage);
+        })
+        .catch((error) => {
+          alert(
+            "エラーが出ました！ 画像を再送信してください。"
+          );
         });
     };
     Upload();
