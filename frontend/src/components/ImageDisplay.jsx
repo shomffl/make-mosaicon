@@ -71,17 +71,17 @@ const SImage = styled.img`
   width: 35vmax;
   height: 35vmax;
   position: relative;
-  bottom: 6vw;
+  bottom: 4vw;
 `;
 
 const SReactLoading = styled(ReactLoading)`
   position: absolute;
-  top: -6vw;
+  top: -4vw;
 `;
 
 const SUploadButtonPosition = styled.div`
   position: absolute;
-  top: 31vmax;
+  top: 33vmax;
 `;
 
 const SHomeButtonPosition = styled.div`
