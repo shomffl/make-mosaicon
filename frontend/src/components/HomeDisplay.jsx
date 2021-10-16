@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import backgroundImage from "../background1.png";
 import { Button } from "@material-ui/core";
 import styled, { keyframes } from "styled-components";
+import { ReadFunctionExplanation } from "./ReadFunctionExplanation";
 import axios from "axios";
 
 export const HomeDisplay = () => {
@@ -13,7 +14,7 @@ export const HomeDisplay = () => {
     borderRadius: "30px",
     height: "4vw",
     width: "13vw",
-    border: "1px solid <sil></sil>ver"
+    border: "1px solid silver",
   };
 
   useEffect(() => {
@@ -41,6 +42,10 @@ export const HomeDisplay = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <Background>
+        <ReadPosition>
+          <ReadFunctionExplanation />
+        </ReadPosition>
+
         <Title>
           <SlideInRight>MAKE</SlideInRight>
 
@@ -84,6 +89,13 @@ const Background = styled.header`
   padding: 0px;
   position: relative;
 `;
+
+const ReadPosition = styled.div`
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+`;
+
 
 const Title = styled.div`
   display: flex;
