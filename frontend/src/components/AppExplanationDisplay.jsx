@@ -21,7 +21,7 @@ export const AppExplanationDisplay = () => {
   };
 
   const onClickFunctionExplain = () => {
-    history.push("/function")
+    history.push("/function");
   };
 
   return (
@@ -206,7 +206,7 @@ const SCustomButton = styled(Button)`
 `;
 
 const SCustomButton2 = styled(Button)`
-  background: linear-gradient(45deg, #ccaacc, #ccaacc);
+  background: linear-gradient(45deg, #ccaacc, #cc3dcc);
 
   &:hover {
     transform: translateY(-0.1rem);
