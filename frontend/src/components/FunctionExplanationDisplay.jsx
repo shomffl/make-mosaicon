@@ -24,36 +24,36 @@ export const FunctionExplanationDisplay = () => {
     <Background>
       <div>
         <ExplainRequirements>
-          <div style={{ fontSize: "2.5vw", fontWeight: "bold" }}>
+          <div style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
             ▽ まず初めに…
           </div>
-          <div style={{ fontSize: "1.5vw" }}>
+          <div style={{ fontSize: "1.5vmax" }}>
             モザイクアートを作成するには、モザイクアートに変換したい画像が１枚、モザイクアートの素材となる画像が100枚以上必要になります。
           </div>
 
-          <div style={{ fontSize: "1.5vw" }}>
+          <div style={{ fontSize: "1.5vmax" }}>
             しかし、素材の画像を100枚以上用意するのも大変ですよね？
           </div>
-          <div style={{ fontSize: "1.5vw" }}>
+          <div style={{ fontSize: "1.5vmax" }}>
             そこで今回は素材の画像を用意せずとも手軽にモザイクアートを作成することが出来る機能を設けました。
           </div>
         </ExplainRequirements>
 
         <ExplainMode>
-          <div style={{ fontSize: "2.5vw", fontWeight: "bold" }}>
+          <div style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
             ▽ 2種類のモードについて
           </div>
-          <div style={{ fontSize: "2vw", fontWeight: "bold" }}>
+          <div style={{ fontSize: "2vmax", fontWeight: "bold" }}>
             ⇒ Simpleモード
           </div>
-          <div style={{ fontSize: "1.5vw" }}>
+          <div style={{ fontSize: "1.5vmax" }}>
             このモードではモザイクアート作成に必要な大量の素材画像を用意する必要がありません。モザイクアートに変換したい画像1枚用意するだけで簡単に作成することができます。手軽にモザイクアートを楽しみたい人にはSimpleモードがおすすめです。
           </div>
           <br/>
-          <div style={{ fontSize: "2vw", fontWeight: "bold" }}>
+          <div style={{ fontSize: "2vmax", fontWeight: "bold" }}>
             ⇒ FullScaleモード
           </div>
-          <div style={{ fontSize: "1.5vw" }}>
+          <div style={{ fontSize: "1.5vmax" }}>
             このモードではモザイクアート作成に必要な大量の素材画像を用意する必要があります。しかし、その分オリジナリティのあるものを作れます。家族や友人とのたくさんの思い出を一枚のアートに閉じ込めたい人にはFullScaleモードがおすすめです。
           </div>
         </ExplainMode>
