@@ -22,11 +22,10 @@ export const FunctionExplanationDisplay = () => {
 
   return (
     <Background>
-      <Title>
-        <span>〇 機能説明</span>
-      </Title>
-
       <ExplainArea>
+        <Title>
+          <span>〇 機能説明</span>
+        </Title>
         <ExplainRequirements>
           <span style={{ fontSize: "2.5vmax", fontWeight: "bold" }}>
             ▽ まず初めに…
@@ -42,7 +41,7 @@ export const FunctionExplanationDisplay = () => {
           </span>
           <br />
           <span style={{ fontSize: "1.5vmax" }}>
-            そこで今回は素材の画像を用意せずとも手軽にモザイクアートを作成することが出来るモードを設けました。
+            そこで今回は素材の画像を用意せずとも手軽にモザイクアートを作成することが出来る機能を設けました。
           </span>
         </ExplainRequirements>
 
@@ -56,7 +55,7 @@ export const FunctionExplanationDisplay = () => {
           </span>
           <br />
           <span style={{ fontSize: "1.5vmax" }}>
-            このモードではモザイクアート作成に必要な大量の素材画像を用意する必要がありません。モザイクアートに変換したい画像1枚用意するだけで簡単に作成することができます。手軽にモザイクアートを楽しみたい人はSimpleモードがおすすめです。
+            このモードではモザイクアート作成に必要な大量の素材画像を用意する必要がありません。モザイクアートに変換したい画像1枚用意するだけで簡単に作成することができます。手軽にモザイクアートを楽しみたい人にはSimpleモードがおすすめです。
           </span>
           <br />
           <br />
@@ -65,7 +64,7 @@ export const FunctionExplanationDisplay = () => {
           </span>
           <br />
           <span style={{ fontSize: "1.5vmax" }}>
-            このモードではモザイクアート作成に必要な大量の素材画像を用意する必要があります。しかし、その分オリジナリティのあるものを作れます。家族や友人との思い出を一枚のアートに閉じ込めたい人にはFullScaleモードがおすすめです。
+            このモードではモザイクアート作成に必要な大量の素材画像を用意する必要があります。しかし、その分オリジナリティのあるものを作れます。家族や友人とのたくさんの思い出を一枚のアートに閉じ込めたい人にはFullScaleモードがおすすめです。
           </span>
         </ExplainMode>
       </ExplainArea>
@@ -96,7 +95,7 @@ const Background = styled.header`
     ),
     url(${backgroundImage});
   background-size: cover;
-  min-height: 100vh;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,9 +106,9 @@ const Background = styled.header`
 `;
 
 const Title = styled.div`
-  position: absolute;
-  top: 2vmax;
-  left: 2vmax;
+  position: relative;
+  top: -3vmax;
+  left: 1vmax;
   font-size: 3.5vmax;
   font-weight: bold;
   letter-spacing: 0.2vmax;
