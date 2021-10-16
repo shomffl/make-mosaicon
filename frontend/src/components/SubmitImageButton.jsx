@@ -33,12 +33,12 @@ export const SubmitImageButton = (props) => {
         .post("/upload", formData, {
           header: { "content-type": "multipart/form-data" },
         })
-        .then((result) => {
+        .then((response) => {
           setOpenDownload(!openDownload);
           changeImage(
-            `${process.env.PUBLIC_URL}/static/images/download_images/${result.data.image}`
+            `${process.env.PUBLIC_URL}/static/images/download_images/${response.data.image}`
           );
-          setImageUrl(result.data.image);
+          setImageUrl(response.data.image);
         })
         .catch((error) => {
           alert("エラーが出ました！ 画像を再送信してください。");

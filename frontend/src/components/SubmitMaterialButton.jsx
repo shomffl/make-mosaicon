@@ -32,7 +32,8 @@ export const SubmitMaterialButton = () => {
         .post("/download", formData, {
           header: { "content-type": "multipart/form-data" },
         })
-        .then(() => {
+        .then((response) => {
+          console.log(response.data.message)
           changeOpenSelect();
           setOpenLoadingImage(!openLoadingImage);
         })

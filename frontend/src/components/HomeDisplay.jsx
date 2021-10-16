@@ -18,14 +18,18 @@ export const HomeDisplay = () => {
   };
 
   useEffect(() => {
-    axios.get("/make");
+    axios.get("/make").then((response) => {
+      console.log(response.data.message);
+    });
   }, []);
 
   const history = useHistory();
 
   const onClickSubmitArea = () => {
     const Clear = () => {
-      axios.post("/delete", { course: true });
+      axios.post("/delete", { course: true }).then((response) => {
+        console.log(response.data.message);
+      });
     };
     Clear();
     history.push("/simple");
@@ -33,7 +37,9 @@ export const HomeDisplay = () => {
 
   const onClickSubmitManyImage = () => {
     const Clear = () => {
-      axios.post("/delete", { course: false });
+      axios.post("/delete", { course: false }).then((response) => {
+        console.log(response.data.message);
+      });
     };
     Clear();
     history.push("/fullscale");
@@ -95,7 +101,6 @@ const ReadPosition = styled.div`
   top: 1vw;
   left: 1vw;
 `;
-
 
 const Title = styled.div`
   display: flex;
