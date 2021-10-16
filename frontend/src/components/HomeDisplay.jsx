@@ -13,7 +13,7 @@ export const HomeDisplay = () => {
     borderRadius: "30px",
     height: "4vw",
     width: "13vw",
-    border: "1px solid white"
+    border: "1px solid <sil></sil>ver"
   };
 
   useEffect(() => {
