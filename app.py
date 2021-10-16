@@ -25,7 +25,7 @@ def download():
         download_images = DownloadMaterialImage(download_material_path, data)
         download_images.save_files()
 
-        return {"bool": "true"}
+        return {"message": "image was uploaded"}
 
     else:
         return render_template("index.html")
@@ -63,29 +63,30 @@ def upload():
 
 @app.route("/make",methods=["GET", "POST"])
 def make_files():
-    base_url ="./frontend/build/static/images"
-    fullscale_exist = os.path.exists(f"{base_url}/fullscale_images")
-    split_exist = os.path.exists(f"{base_url}/split_original_files")
-    donwload_exist = os.path.exists(f"{base_url}/download_images")
-    if fullscale_exist == False:
-        os.mkdir(f"{base_url}/fullscale_images/")
-        os.mkdir(f"{base_url}/fullscale_images/big_material_files")
-        os.mkdir(f"{base_url}/fullscale_images/small_material_files")
-        os.mkdir(f"{base_url}/fullscale_images/download_material_files")
-    else:
-        pass
+    if request.method == "GET":
+        base_url ="./frontend/build/static/images"
+        fullscale_exist = os.path.exists(f"{base_url}/fullscale_images")
+        split_exist = os.path.exists(f"{base_url}/split_original_files")
+        donwload_exist = os.path.exists(f"{base_url}/download_images")
+        if fullscale_exist == False:
+            os.mkdir(f"{base_url}/fullscale_images/")
+            os.mkdir(f"{base_url}/fullscale_images/big_material_files")
+            os.mkdir(f"{base_url}/fullscale_images/small_material_files")
+            os.mkdir(f"{base_url}/fullscale_images/download_material_files")
+        else:
+            pass
 
-    if split_exist == False:
-        os.mkdir(f"{base_url}/split_original_files/")
-    else:
-        pass
+        if split_exist == False:
+            os.mkdir(f"{base_url}/split_original_files/")
+        else:
+            pass
 
-    if donwload_exist == False:
-        os.mkdir(f"{base_url}/download_images/")
-    else:
-        pass
+        if donwload_exist == False:
+            os.mkdir(f"{base_url}/download_images/")
+        else:
+            pass
 
-    return {"message": "file was maked"}
+        return {"message": "file was maked"}
 
 
 @app.route("/delete",methods=["GET","POST"])
