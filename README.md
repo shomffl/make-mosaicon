@@ -43,6 +43,7 @@ https://make-mosaicon.herokuapp.com/
 - numpy 1.21.2
 - opencv-python 4.5.3.56
 - pykakasi 2.2.1
+- gunicorn 20.1.0
 
 
 # Installation
@@ -52,6 +53,9 @@ pip install Flask
 pip install numpy
 pip install opencv-python
 pip install pykakasi
+
+#デプロイする場合
+pip install gunicorn
 ```
 
 # Usage
