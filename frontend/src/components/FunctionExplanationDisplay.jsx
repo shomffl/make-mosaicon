@@ -49,7 +49,7 @@ export const FunctionExplanationDisplay = () => {
           <div style={{ fontSize: "1.5vw" }}>
             このモードではモザイクアート作成に必要な大量の素材画像を用意する必要がありません。モザイクアートに変換したい画像1枚用意するだけで簡単に作成することができます。手軽にモザイクアートを楽しみたい人にはSimpleモードがおすすめです。
           </div>
-          <br />
+          <br/>
           <div style={{ fontSize: "2vw", fontWeight: "bold" }}>
             ⇒ FullScaleモード
           </div>
@@ -118,7 +118,7 @@ const circleanime = keyframes`
 const SCustomButton = styled(Button)`
   background: linear-gradient(45deg, #ff9ae3, #ff5f82);
   positoin: relative;
-  top: 5vmax;
+  top: 3.5vmax;
 
   &:hover {
     transform: translateY(-0.1rem);
