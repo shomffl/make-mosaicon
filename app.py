@@ -1,6 +1,4 @@
 from flask import Flask, request, render_template
-from flask.helpers import send_from_directory
-from werkzeug.utils import  secure_filename
 from api.download_image import DownloadOriginalImage, DownloadMaterialImage
 from api.make_mosaicart import MakeMosaicon
 from api.make_folder import MakeSimpleFolder, MakeFullScaleFolder
