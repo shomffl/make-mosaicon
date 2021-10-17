@@ -28,25 +28,28 @@ export const SubmitMaterialButton = () => {
     maxWidthOrHeight: 50,
   };
 
-  const submitImage = async(e) => {
+  const submitImage = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
     const form = new FormData(e.target);
     const postForm = new FormData();
-    const file = form.get("file");
-    const compressFile = await imageCompression(file, compressOption);
-    postForm.append("file", compressFile, file.name);
+    setOpenLoadingImage(true);
+    setOpenSelect(false);
 
-    setOpenLoadingImage(!openLoadingImage);
+    const file = form.getAll("file");
+    for (let i = 0; i < file.length; i++) {
+      await imageCompression(file[i], compressOption).then((result) => {
+        postForm.append("file", result, file[i].name);
+      });
+    }
 
     const Upload = () => {
       axios
-        .post("/download", formData, {
+        .post("/download", postForm, {
           header: { "content-type": "multipart/form-data" },
         })
         .then((response) => {
           console.log(response.data.message);
-          changeOpenSelect();
+          setOpenSelect(true);
           setOpenLoadingImage(!openLoadingImage);
         })
         .catch((error) => {
