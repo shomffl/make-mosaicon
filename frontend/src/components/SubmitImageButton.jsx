@@ -7,6 +7,7 @@ import PublishIcon from "@material-ui/icons/Publish";
 import styled from "styled-components";
 import { DownloadImage } from "./DownloadImage";
 import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
+import imageCompression from "browser-image-compression";
 
 export const SubmitImageButton = (props) => {
   const { changeImage } = props;
@@ -23,14 +24,27 @@ export const SubmitImageButton = (props) => {
     width: "12vw",
   };
 
-  const submitImage = (e) => {
+  const compressOption = {
+    maxSizeMB: 0.01,
+    maxWidthOrHeight: 100,
+  };
+
+  const submitImage = async (e) => {
     setOpenCreate(!openCreate);
 
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const form = new FormData(e.target);
+    const postForm = new FormData();
+    const file = form.get("file");
+    const compressFile = await imageCompression(file, compressOption);
+    postForm.append("file", compressFile, file.name);
+     alert(
+       `default_size: ${file.size} \n compressed_size: ${compressFile.size}`
+     );
+
     const Upload = () => {
       axios
-        .post("/upload", formData, {
+        .post("/upload", postForm, {
           header: { "content-type": "multipart/form-data" },
         })
         .then((response) => {

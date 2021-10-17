@@ -7,6 +7,7 @@ import ReactLoading from "react-loading";
 import PublishIcon from "@material-ui/icons/Publish";
 import styled from "styled-components";
 import backgroundImage from "../background3.png";
+import imageCompression from "browser-image-compression";
 
 export const SubmitMaterialButton = () => {
   const [openSelect, setOpenSelect] = useState(false);
@@ -22,9 +23,20 @@ export const SubmitMaterialButton = () => {
     width: "12vw",
   };
 
-  const submitImage = (e) => {
+  const compressOption = {
+    maxSizeMB: 0.01,
+    maxWidthOrHeight: 100,
+  };
+
+  const submitImage = async(e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
+    const form = new FormData(e.target);
+    const postForm = new FormData();
+    const file = form.get("file");
+    const compressFile = await imageCompression(file, compressOption);
+    postForm.append("file", compressFile, file.name);
+
     setOpenLoadingImage(!openLoadingImage);
 
     const Upload = () => {
@@ -33,14 +45,12 @@ export const SubmitMaterialButton = () => {
           header: { "content-type": "multipart/form-data" },
         })
         .then((response) => {
-          console.log(response.data.message)
+          console.log(response.data.message);
           changeOpenSelect();
           setOpenLoadingImage(!openLoadingImage);
         })
         .catch((error) => {
-          alert(
-            "エラーが出ました！ 画像を再送信してください。"
-          );
+          alert("エラーが出ました！ 画像を再送信してください。");
         });
     };
     Upload();
