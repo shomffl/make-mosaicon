@@ -38,9 +38,7 @@ export const SubmitImageButton = (props) => {
     const file = form.get("file");
     const compressFile = await imageCompression(file, compressOption);
     postForm.append("file", compressFile, file.name);
-     alert(
-       `default_size: ${file.size} \n compressed_size: ${compressFile.size}`
-     );
+
 
     const Upload = () => {
       axios

@@ -25,7 +25,7 @@ export const SubmitMaterialButton = () => {
 
   const compressOption = {
     maxSizeMB: 0.01,
-    maxWidthOrHeight: 100,
+    maxWidthOrHeight: 50,
   };
 
   const submitImage = async(e) => {
