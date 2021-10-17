@@ -2,6 +2,7 @@ import os
 import cv2
 from werkzeug.utils import  secure_filename
 from api.convert_filename import Kakashi
+import glob
 
 class DownloadOriginalImage:
 
@@ -29,6 +30,7 @@ class DownloadMaterialImage:
         self.data = data
 
     def save_files(self):
+        list_num = len(glob.glob(f"{self.filepath}/small_material_files/*.png"))
         for id,name in enumerate(self.data):
 
             #ファイル名をアルファベットに変換
@@ -43,8 +45,8 @@ class DownloadMaterialImage:
             #保存された画像を40×40の大きさにサイズ変更して保存する
             img = cv2.imread(f"{self.filepath}/download_material_files/{save_filename}")
             big_material_img = cv2.resize(img, (40,40))
-            cv2.imwrite(f"{self.filepath}/big_material_files/canvas{id}.png", big_material_img)
+            cv2.imwrite(f"{self.filepath}/big_material_files/canvas{id + list_num}.png", big_material_img)
 
             #保存された画像を5×5の多き際にサイズ変更して保存する
             small_material_img = cv2.resize(big_material_img, (5, 5))
-            cv2.imwrite(f"{self.filepath}/small_material_files/canvas{id}.png", small_material_img)
+            cv2.imwrite(f"{self.filepath}/small_material_files/canvas{id + list_num}.png", small_material_img)
