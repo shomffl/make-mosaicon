@@ -14,13 +14,14 @@ export const SelectButton = (props) => {
 
   const ButtonStyle = {
     color: "white",
-    fontSize: "20px",
+    fontSize: "2vw",
     fontWeight: "bold",
     borderRadius: "30px",
-    width: "200px",
-    height: "48px",
+    width: "15vw",
+    height: "4vw",
     radius: "30px",
   };
+
 
   return (
     <>
