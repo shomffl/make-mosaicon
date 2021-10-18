@@ -37,6 +37,11 @@ export const SubmitMaterialButton = () => {
     setOpenSelect(false);
 
     const file = form.getAll("file");
+    if (file[0].name === "") {
+      alert(
+        "画像が選択されていません!!! リロードしてから画像を再送信してください。"
+      );
+    }
     for (let i = 0; i < file.length; i++) {
       await imageCompression(file[i], compressOption).then((result) => {
         postForm.append("file", result, file[i].name);

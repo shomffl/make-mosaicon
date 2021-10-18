@@ -9,7 +9,6 @@ import { DownloadImage } from "./DownloadImage";
 import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
 import imageCompression from "browser-image-compression";
 
-
 //オリジナル画像送信用のボタン
 export const SubmitImageButton = (props) => {
   const { changeImage } = props;
@@ -38,6 +37,12 @@ export const SubmitImageButton = (props) => {
     const form = new FormData(e.target);
     const postForm = new FormData();
     const file = form.get("file");
+    if (file.name === "") {
+      alert(
+        "画像が選択されていません!!! リロードしてから画像を再送信してください。"
+      );
+    }
+
     const compressFile = await imageCompression(file, compressOption);
     postForm.append("file", compressFile, file.name);
 
