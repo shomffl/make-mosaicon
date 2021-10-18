@@ -9,6 +9,8 @@ import { DownloadImage } from "./DownloadImage";
 import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
 import imageCompression from "browser-image-compression";
 
+
+//オリジナル画像送信用のボタン
 export const SubmitImageButton = (props) => {
   const { changeImage } = props;
   const { openCreate, setOpenCreate } = useContext(OpenCreateContext);
@@ -29,16 +31,15 @@ export const SubmitImageButton = (props) => {
     maxWidthOrHeight: 100,
   };
 
+  //画像送信の処理
   const submitImage = async (e) => {
     setOpenCreate(!openCreate);
-
     e.preventDefault();
     const form = new FormData(e.target);
     const postForm = new FormData();
     const file = form.get("file");
     const compressFile = await imageCompression(file, compressOption);
     postForm.append("file", compressFile, file.name);
-
 
     const Upload = () => {
       axios

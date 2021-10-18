@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import styled, { keyframes } from "styled-components";
 
+
+// アプリ説明用の画面
 export const AppExplanationDisplay = () => {
   const history = useHistory();
   const ButtonStyle = {
@@ -60,13 +62,13 @@ export const AppExplanationDisplay = () => {
         </TextPosition>
 
         <ButtonPosition>
-          <SCustomButton style={ButtonStyle} onClick={onClickFunctionExplain}>
+          <CustomButton style={ButtonStyle} onClick={onClickFunctionExplain}>
             <span>機能説明</span>
-          </SCustomButton>
+          </CustomButton>
 
-          <SCustomButton2 style={ButtonStyle} onClick={onClickHome}>
+          <CustomButton2 style={ButtonStyle} onClick={onClickHome}>
             <span>START ⇒</span>
-          </SCustomButton2>
+          </CustomButton2>
         </ButtonPosition>
       </Background>
     </>
@@ -170,7 +172,7 @@ const circleanime = keyframes`
   }
 `;
 
-const SCustomButton = styled(Button)`
+const CustomButton = styled(Button)`
   background: linear-gradient(45deg, #ff9ae3, #ff5f82);
 
   &:hover {
@@ -205,7 +207,7 @@ const SCustomButton = styled(Button)`
   }
 `;
 
-const SCustomButton2 = styled(Button)`
+const CustomButton2 = styled(Button)`
   background: linear-gradient(45deg, #ccaacc, #cc3dcc);
 
   &:hover {

@@ -8,6 +8,8 @@ import ReactLoading from "react-loading";
 import { OpenCreateContext } from "../providers/OpenCreateProvider";
 import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
 
+
+//オリジナル画像選択用の画面
 export const ImageDisplay = () => {
   const { openCreate } = useContext(OpenCreateContext);
   const { openDownload } = useContext(OpenDownloadContext);

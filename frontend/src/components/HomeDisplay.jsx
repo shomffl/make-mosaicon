@@ -6,6 +6,7 @@ import styled, { keyframes } from "styled-components";
 import { ReadFunctionExplanation } from "./ReadFunctionExplanation";
 import axios from "axios";
 
+//モード選択用の画面
 export const HomeDisplay = () => {
   const buttonStyle = {
     color: "white",
@@ -17,6 +18,7 @@ export const HomeDisplay = () => {
     border: "1px solid silver",
   };
 
+  //画面遷移時に必要なフォルダを生成
   useEffect(() => {
     axios.get("/make").then((response) => {
       console.log(response.data.message);
@@ -25,7 +27,8 @@ export const HomeDisplay = () => {
 
   const history = useHistory();
 
-  const onClickSubmitArea = () => {
+  //オリジナル画像選択画面へ遷移
+  const onClickSubmitOriginalArea = () => {
     const Clear = () => {
       axios.post("/delete", { course: true }).then((response) => {
         console.log(response.data.message);
@@ -35,7 +38,8 @@ export const HomeDisplay = () => {
     history.push("/simple");
   };
 
-  const onClickSubmitManyImage = () => {
+  //素材画像選択画面へ遷移
+  const onClickSubmitMaterialArea = () => {
     const Clear = () => {
       axios.post("/delete", { course: false }).then((response) => {
         console.log(response.data.message);
@@ -63,10 +67,10 @@ export const HomeDisplay = () => {
         </Title>
 
         <ButtonPosition>
-          <StyledButton1 style={buttonStyle} onClick={onClickSubmitArea}>
+          <StyledButton1 style={buttonStyle} onClick={onClickSubmitOriginalArea}>
             SIMPLE
           </StyledButton1>
-          <StyledButton2 style={buttonStyle} onClick={onClickSubmitManyImage}>
+          <StyledButton2 style={buttonStyle} onClick={onClickSubmitMaterialArea}>
             FULLSCALE
           </StyledButton2>
         </ButtonPosition>

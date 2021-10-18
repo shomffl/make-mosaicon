@@ -4,6 +4,7 @@ import GetAppIcon from "@material-ui/icons/GetApp";
 import { IconButton } from "@material-ui/core";
 import styled from "styled-components";
 
+//画像をダウンロードするためのボタン
 export const DownloadImage = memo((props) => {
   const { imageUrl } = props;
   const onClickDownload = () => {
@@ -22,16 +23,16 @@ export const DownloadImage = memo((props) => {
   return (
     <>
       <div>
-        <SCustomIconButton style={ButtonStyle} onClick={onClickDownload}>
+        <CustomIconButton style={ButtonStyle} onClick={onClickDownload}>
           <span>download</span>
           <GetAppIcon style={{ fontSize: "2vw" }} />
-        </SCustomIconButton>
+        </CustomIconButton>
       </div>
     </>
   );
 });
 
-const SCustomIconButton = styled(IconButton)`
+const CustomIconButton = styled(IconButton)`
   background: linear-gradient(45deg, #66b8cc, #65a7cc);
   &:hover {
     transform: translateY(-0.1rem);

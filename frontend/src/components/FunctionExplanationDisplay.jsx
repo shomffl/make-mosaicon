@@ -4,6 +4,7 @@ import backgroundImage from "../background1.png";
 import styled, { keyframes } from "styled-components";
 import { Button } from "@material-ui/core";
 
+//機能説明用の画面
 export const FunctionExplanationDisplay = () => {
   const history = useHistory();
   const ButtonStyle = {
@@ -59,9 +60,9 @@ export const FunctionExplanationDisplay = () => {
         </ExplainMode>
       </div>
 
-      <SCustomButton style={ButtonStyle} onClick={onClickHome}>
+      <CustomButton style={ButtonStyle} onClick={onClickHome}>
         <span>START ⇒</span>
-      </SCustomButton>
+      </CustomButton>
     </Background>
   );
 };
@@ -115,7 +116,7 @@ const circleanime = keyframes`
   }
 `;
 
-const SCustomButton = styled(Button)`
+const CustomButton = styled(Button)`
   background: linear-gradient(45deg, #ff9ae3, #ff5f82);
   positoin: relative;
   top: 3.5vmax;

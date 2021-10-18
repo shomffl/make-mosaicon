@@ -6,6 +6,8 @@ import { OpenCreateContext } from "../providers/OpenCreateProvider";
 import styled from "styled-components";
 import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
 
+
+//モザイクアート作り直し用のボタン
 export const RemaikButton = memo((props) => {
   const { changeImage } = props;
   const { openCreate, setOpenCreate } = useContext(OpenCreateContext);

@@ -9,6 +9,7 @@ import styled from "styled-components";
 import backgroundImage from "../background3.png";
 import imageCompression from "browser-image-compression";
 
+//素材画像送信用の画面
 export const SubmitMaterialButton = () => {
   const [openSelect, setOpenSelect] = useState(false);
   const [openLoadingImage, setOpenLoadingImage] = useState(false);

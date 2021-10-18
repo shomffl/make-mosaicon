@@ -6,6 +6,7 @@ import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
 import styled from "styled-components";
 import { OpenCreateContext } from "../providers/OpenCreateProvider";
 
+//ホーム画面に戻るためのボタン
 export const BackHomeButton = () => {
   const { setOpenDownload } = useContext(OpenDownloadContext);
   const { setOpenCreate } = useContext(OpenCreateContext);

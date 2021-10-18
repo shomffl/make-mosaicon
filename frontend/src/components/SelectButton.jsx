@@ -4,6 +4,8 @@ import { IconButton } from "@material-ui/core";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import styled, { keyframes } from "styled-components";
 
+
+//素材画像の選択終了後にオリジナル画像選択画面へ遷移するボタン
 export const SelectButton = (props) => {
   const { openSelect, changeOpenSelect } = props;
   const history = useHistory();

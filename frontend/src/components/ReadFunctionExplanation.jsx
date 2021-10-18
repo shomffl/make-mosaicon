@@ -6,6 +6,8 @@ import { OpenDownloadContext } from "../providers/OpenDownloadProvider";
 import styled from "styled-components";
 import { OpenCreateContext } from "../providers/OpenCreateProvider";
 
+
+//機能説明ページ遷移用のボタン
 export const ReadFunctionExplanation = () => {
   const { setOpenDownload } = useContext(OpenDownloadContext);
   const { setOpenCreate } = useContext(OpenCreateContext);
