@@ -5,10 +5,10 @@ import os
 #オリジナル画像を指定したサイズで分割する。
 class SplitImage:
 
-    def __init__(self, size, filename, filepath):
+    def __init__(self, size, filename, output_path):
         self.size = size
         self.filename = filename
-        self.filepath = filepath
+        self.output_path = output_path
 
     def split_image(self):
         #画像を読み込んで画像の幅を取得する
@@ -24,4 +24,4 @@ class SplitImage:
 
         #分割した画像をフォルダに保存する
         for num, list_num in enumerate(original_list):
-            cv2.imwrite(os.path.join("{}/canvas{}.png".format(self.filepath,num)),list_num)
+            cv2.imwrite(os.path.join("{}/canvas{}.png".format(self.output_path,num)),list_num)

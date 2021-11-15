@@ -82,7 +82,7 @@ export const SubmitMaterialButton = () => {
           )}
         </LoadingPosition>
 
-        <Form onSubmit={submitImage} encType="multipart/form-data">
+        <Form onSubmit={submitImage} onChange={(e) => alert("画像が選択されました!!")} encType="multipart/form-data">
           <label>
             <input
               style={{ display: "none" }}
