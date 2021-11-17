@@ -69,7 +69,10 @@ export const SubmitImageButton = (props) => {
     <>
       {openCreate ? (
         <div>
-          <Form onSubmit={submitImage} onChange={(e) => alert("画像が選択されました!!")}>
+          <Form
+            onSubmit={submitImage}
+            onChange={(e) => alert("画像が選択されました!! uploadしてください!!")}
+          >
             <label>
               <input
                 style={{ display: "none" }}
