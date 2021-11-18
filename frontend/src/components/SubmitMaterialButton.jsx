@@ -14,6 +14,7 @@ export const SubmitMaterialButton = () => {
   const [openSelect, setOpenSelect] = useState(false);
   const [openLoadingImage, setOpenLoadingImage] = useState(false);
   const changeOpenSelect = () => setOpenSelect(!openSelect);
+  const [input, setInput] = useState(true);
 
   const ButtonStyle = {
     color: "white",
@@ -29,7 +30,13 @@ export const SubmitMaterialButton = () => {
     maxWidthOrHeight: 50,
   };
 
+  const setImage = (e) => {
+    alert("画像が選択されました!! uploadしてください!!");
+    setInput(false);
+  };
+
   const submitImage = async (e) => {
+    setInput(true);
     e.preventDefault();
     const form = new FormData(e.target);
     const postForm = new FormData();
@@ -82,7 +89,11 @@ export const SubmitMaterialButton = () => {
           )}
         </LoadingPosition>
 
-        <Form onSubmit={submitImage} onChange={(e) => alert("画像が選択されました!!")} encType="multipart/form-data">
+        <Form
+          onSubmit={submitImage}
+          onChange={setImage}
+          encType="multipart/form-data"
+        >
           <label>
             <input
               style={{ display: "none" }}
@@ -96,7 +107,7 @@ export const SubmitMaterialButton = () => {
             </SStyledButton>
           </label>
 
-          <SCustomIconButton style={ButtonStyle} type="submit">
+          <SCustomIconButton style={ButtonStyle} type="submit" disabled={input}>
             <span>upload</span>
             <PublishIcon style={{ fontSize: "2vw" }} />
           </SCustomIconButton>

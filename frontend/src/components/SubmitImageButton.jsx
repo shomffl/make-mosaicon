@@ -15,6 +15,7 @@ export const SubmitImageButton = (props) => {
   const { openCreate, setOpenCreate } = useContext(OpenCreateContext);
   const { openDownload, setOpenDownload } = useContext(OpenDownloadContext);
   const [imageUrl, setImageUrl] = useState("");
+  const [input, setInput] = useState(true);
 
   const ButtonStyle = {
     color: "white",
@@ -30,9 +31,15 @@ export const SubmitImageButton = (props) => {
     maxWidthOrHeight: 100,
   };
 
+  const setImage = (e) => {
+    alert("画像が選択されました!! uploadしてください!!");
+    setInput(false);
+  };
+
   //画像送信の処理
   const submitImage = async (e) => {
     setOpenCreate(!openCreate);
+    setInput(true);
     e.preventDefault();
     const form = new FormData(e.target);
     const postForm = new FormData();
@@ -69,10 +76,7 @@ export const SubmitImageButton = (props) => {
     <>
       {openCreate ? (
         <div>
-          <Form
-            onSubmit={submitImage}
-            onChange={(e) => alert("画像が選択されました!! uploadしてください!!")}
-          >
+          <Form onSubmit={submitImage} onChange={setImage}>
             <label>
               <input
                 style={{ display: "none" }}
@@ -86,7 +90,11 @@ export const SubmitImageButton = (props) => {
             </label>
 
             <label>
-              <SCustomIconButton style={ButtonStyle} type="submit">
+              <SCustomIconButton
+                style={ButtonStyle}
+                type="submit"
+                disabled={input}
+              >
                 <span>upload</span>
                 <PublishIcon style={{ fontSize: "2vw" }} />
               </SCustomIconButton>
