@@ -5,6 +5,7 @@ from api.make_folder import MakeSimpleFolder, MakeFullScaleFolder
 import os
 import random
 import string
+import time
 
 
 #simpleモードとfullscaleモードを判別
@@ -49,6 +50,8 @@ def upload():
 
         #モザイクアート作成のためにサイズ変更した画像のパスを変数に代入
         reference_filename = f"{download_filepath}/resize_image{randstr}.png"
+
+
 
         #simpleモードで作成
         if make_course == True:
