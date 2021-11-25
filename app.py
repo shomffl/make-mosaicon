@@ -52,7 +52,6 @@ def upload():
         reference_filename = f"{download_filepath}/resize_image{randstr}.png"
 
 
-
         #simpleモードで作成
         if make_course == True:
             make_mosaicon = MakeMosaicon("simple_images", "./frontend/build/static/images", reference_filename, randstr)
